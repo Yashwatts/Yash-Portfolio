@@ -497,11 +497,11 @@ export default function Portfolio() {
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center z-10 relative">
           <div className="animate-fade-in-up">
             <h1 className="text-4xl sm:text-6xl lg:text-7xl font-bold text-foreground mb-6">
-              Hi, I'm{" "}
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary">
-                Yash Watts
-              </span>
-            </h1>
+  Hi, I&apos;m{" "}
+  <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary">
+    Yash Watts
+  </span>
+</h1>
             <p className="text-xl sm:text-2xl text-muted-foreground mb-4 font-serif">B.Tech CSE Student</p>
             <p className="text-lg sm:text-xl text-muted-foreground mb-8 max-w-2xl mx-auto leading-relaxed">
               Passionate software developer with expertise in AI/ML, Web Development, and innovative solutions. Patent
@@ -1306,19 +1306,19 @@ export default function Portfolio() {
           <div className="text-center mb-16">
             <h2 className="text-3xl sm:text-4xl font-bold text-foreground mb-4">Get In Touch</h2>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              Ready to bring your ideas to life? Let's discuss your next project and create something amazing together.
-            </p>
+  Ready to bring your ideas to life? Let&apos;s discuss your next project and create something amazing together.
+</p>
           </div>
 
           <div className="grid lg:grid-cols-2 gap-12">
             <div className="space-y-8">
               <div>
-                <h3 className="text-2xl font-bold text-foreground mb-6">Let's Connect</h3>
+                <h3 className="text-2xl font-bold text-foreground mb-6">Let&apos;s Connect</h3>
                 <p className="text-muted-foreground mb-8 leading-relaxed">
-                  I'm always excited to take on new challenges and collaborate on innovative projects. Whether you're a
-                  startup looking to build your first product, an established company seeking to modernize your tech
-                  stack, or a fellow developer interested in collaboration, I'd love to hear from you.
-                </p>
+  I&apos;m always excited to take on new challenges and collaborate on innovative projects. Whether you&apos;re a
+  startup looking to build your first product, an established company seeking to modernize your tech
+  stack, or a fellow developer interested in collaboration, I&apos;d love to hear from you.
+</p>
               </div>
 
               <div className="space-y-6">
@@ -1375,7 +1375,7 @@ export default function Portfolio() {
                   {submitted ? (
                     <div className="text-center text-green-600 dark:text-green-400">
                       <p className="text-lg font-medium">Thank you for your message!</p>
-                      <p className="text-sm text-muted-foreground">I'll get back to you soon.</p>
+                      <p className="text-sm text-muted-foreground">I&apos;ll get back to you soon.</p>
                     </div>
                   ) : (
                     <form onSubmit={handleSubmit} className="space-y-6">
@@ -1467,9 +1467,9 @@ export default function Portfolio() {
             <div>
               <h3 className="font-serif font-bold text-xl text-primary mb-4">Yash Watts</h3>
               <p className="text-muted-foreground text-sm mb-4">
-                Passionate B.Tech CSE student creating innovative solutions with modern technologies. Let's build
-                something amazing together.
-              </p>
+  Passionate B.Tech CSE student creating innovative solutions with modern technologies. Let&apos;s build
+  something amazing together.
+</p>
               <div className="flex space-x-4">
                 <a
                   href="https://github.com/yashwatts"
