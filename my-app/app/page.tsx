@@ -497,11 +497,11 @@ export default function Portfolio() {
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center z-10 relative">
           <div className="animate-fade-in-up">
             <h1 className="text-4xl sm:text-6xl lg:text-7xl font-bold text-foreground mb-6">
-  Hi, I&apos;m{' '}
-  <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary">
-    Yash Watts
-  </span>
-</h1>
+              Hi, I'm{" "}
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary">
+                Yash Watts
+              </span>
+            </h1>
             <p className="text-xl sm:text-2xl text-muted-foreground mb-4 font-serif">B.Tech CSE Student</p>
             <p className="text-lg sm:text-xl text-muted-foreground mb-8 max-w-2xl mx-auto leading-relaxed">
               Passionate software developer with expertise in AI/ML, Web Development, and innovative solutions. Patent
@@ -760,13 +760,8 @@ export default function Portfolio() {
               <div className="relative">
                 <div className="w-80 h-80 rounded-full overflow-hidden border-4 border-gradient-to-r from-primary to-secondary p-1 bg-gradient-to-r from-primary to-secondary">
                   <div className="w-full h-full rounded-full overflow-hidden bg-background">
-  <Image
-    src="/yash.png"
-    alt="Yash Watts"
-    fill
-    className="object-cover"
-  />
-</div>
+                    <img src="/yash.png" alt="Yash Watts" className="w-full h-full object-cover" />
+                  </div>
                 </div>
                 <div className="absolute -top-4 -right-4 w-8 h-8 bg-primary rounded-full animate-pulse"></div>
                 <div className="absolute -bottom-4 -left-4 w-6 h-6 bg-primary rounded-full animate-pulse delay-1000"></div>
@@ -824,13 +819,12 @@ export default function Portfolio() {
                     <CardContent className="p-4">
                       <div className="flex items-center justify-between mb-3">
                         <div className="w-12 h-12 rounded-lg overflow-hidden flex items-center justify-center bg-gray-100 dark:bg-gray-800">
-  <Image
-    src="/rallison-logo.png"
-    alt="Rallison Paint Logo"
-    fill
-    className="object-contain"
-  />
-</div>
+                          <img
+                            src="/rallison-logo.png"
+                            alt="Rallison Paint Logo"
+                            className="w-full h-full object-contain"
+                          />
+                        </div>
                         <div className="flex items-center space-x-2">
                           <span className="px-2 py-1 bg-green-100 dark:bg-green-900/30 text-green-800 dark:text-green-200 text-xs rounded-full font-medium">
                             Current
@@ -879,13 +873,12 @@ export default function Portfolio() {
                           </span>
                         </div>
                         <div className="w-12 h-12 rounded-lg overflow-hidden flex items-center justify-center bg-gray-100 dark:bg-gray-800">
-  <Image
-    src="/bhatia-sales-logo.png"
-    alt="BhatiaSales Logo"
-    fill
-    className="object-contain"
-  />
-</div>
+                          <img
+                            src="/bhatia-sales-logo.png"
+                            alt="BhatiaSales Logo"
+                            className="w-full h-full object-contain"
+                          />
+                        </div>
                       </div>
                       <h3 className="text-lg font-bold text-card-foreground mb-1">Web Developer</h3>
                       <h4 className="text-base font-semibold text-destructive mb-2">BhatiaSales</h4>
@@ -949,14 +942,13 @@ export default function Portfolio() {
                 <CardContent className="p-8">
                   {/* Achievement Image */}
                   {achievement.image && (
-                    <div className="mb-6 rounded-lg overflow-hidden relative w-full h-48">
-  <Image
-    src={achievement.image || "/placeholder.svg"}
-    alt={achievement.subtitle}
-    fill
-    className="object-cover"
-  />
-</div>
+                    <div className="mb-6 rounded-lg overflow-hidden">
+                      <img
+                        src={achievement.image || "/placeholder.svg"}
+                        alt={achievement.subtitle}
+                        className="w-full h-48 object-cover"
+                      />
+                    </div>
                   )}
 
                   <div className="flex items-center space-x-4 mb-6">
@@ -1058,28 +1050,25 @@ export default function Portfolio() {
             {featuredProjects.map((project, index) => (
               <Card key={index} className="group hover:shadow-xl transition-all duration-300 border-border bg-card">
                 <div className="relative overflow-hidden rounded-t-lg">
-  <div className="w-full h-48 relative group">
-    <Image
-      src={project.image || "/placeholder.svg"}
-      alt={project.title}
-      fill
-      className="object-cover group-hover:scale-105 transition-transform duration-300"
-    />
-  </div>
-  <div className="absolute top-4 right-4">
-    <span
-      className={`px-3 py-1 text-white text-xs font-medium rounded-full ${
-        project.status === "Live"
-          ? "bg-green-500"
-          : project.status === "Award Winner"
-          ? "bg-yellow-500"
-          : "bg-blue-500"
-      }`}
-    >
-      {project.status}
-    </span>
-  </div>
-</div>
+                  <img
+                    src={project.image || "/placeholder.svg"}
+                    alt={project.title}
+                    className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300"
+                  />
+                  <div className="absolute top-4 right-4">
+                    <span
+                      className={`px-3 py-1 text-white text-xs font-medium rounded-full ${
+                        project.status === "Live"
+                          ? "bg-green-500"
+                          : project.status === "Award Winner"
+                            ? "bg-yellow-500"
+                            : "bg-blue-500"
+                      }`}
+                    >
+                      {project.status}
+                    </span>
+                  </div>
+                </div>
                 <CardContent className="p-6">
                   <div className="flex items-center justify-between mb-3">
                     <h3 className="text-xl font-bold text-card-foreground">{project.title}</h3>
@@ -1317,19 +1306,19 @@ export default function Portfolio() {
           <div className="text-center mb-16">
             <h2 className="text-3xl sm:text-4xl font-bold text-foreground mb-4">Get In Touch</h2>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-  Ready to bring your ideas to life? Let&apos;s discuss your next project and create something amazing together.
-</p>
+              Ready to bring your ideas to life? Let's discuss your next project and create something amazing together.
+            </p>
           </div>
 
           <div className="grid lg:grid-cols-2 gap-12">
             <div className="space-y-8">
               <div>
-                <h3 className="text-2xl font-bold text-foreground mb-6">Let&apos;s Connect</h3>
+                <h3 className="text-2xl font-bold text-foreground mb-6">Let's Connect</h3>
                 <p className="text-muted-foreground mb-8 leading-relaxed">
-  I&apos;m always excited to take on new challenges and collaborate on innovative projects. Whether you&apos;re a
-  startup looking to build your first product, an established company seeking to modernize your tech
-  stack, or a fellow developer interested in collaboration, I&apos;d love to hear from you.
-</p>
+                  I'm always excited to take on new challenges and collaborate on innovative projects. Whether you're a
+                  startup looking to build your first product, an established company seeking to modernize your tech
+                  stack, or a fellow developer interested in collaboration, I'd love to hear from you.
+                </p>
               </div>
 
               <div className="space-y-6">
@@ -1386,7 +1375,7 @@ export default function Portfolio() {
                   {submitted ? (
                     <div className="text-center text-green-600 dark:text-green-400">
                       <p className="text-lg font-medium">Thank you for your message!</p>
-                      <p className="text-sm text-muted-foreground">I&apos;ll get back to you soon.</p>
+                      <p className="text-sm text-muted-foreground">I'll get back to you soon.</p>
                     </div>
                   ) : (
                     <form onSubmit={handleSubmit} className="space-y-6">
@@ -1478,9 +1467,9 @@ export default function Portfolio() {
             <div>
               <h3 className="font-serif font-bold text-xl text-primary mb-4">Yash Watts</h3>
               <p className="text-muted-foreground text-sm mb-4">
-  Passionate B.Tech CSE student creating innovative solutions with modern technologies. Let&apos;s build
-  something amazing together.
-</p>
+                Passionate B.Tech CSE student creating innovative solutions with modern technologies. Let's build
+                something amazing together.
+              </p>
               <div className="flex space-x-4">
                 <a
                   href="https://github.com/yashwatts"
