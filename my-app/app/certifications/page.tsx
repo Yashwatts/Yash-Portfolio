@@ -120,8 +120,8 @@ export default function AllCertifications() {
               Professional certifications and credentials that validate my expertise across various technologies
             </p>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              (Haven't uploaded any participation certificate)
-            </p>
+  (Haven&apos;t uploaded any participation certificate)
+</p>
           </div>
         </div>
       </div>

@@ -105,15 +105,15 @@ export default function HackIOTDetails() {
 
           <div className="prose prose-lg max-w-none">
             <p className="text-xl text-muted-foreground leading-relaxed mb-8 text-center italic">
-              "Every child deserves to know their rights, and every right deserves to be learned with joy."
-            </p>
+  &quot;Every child deserves to know their rights, and every right deserves to be learned with joy.&quot;
+</p>
 
             <div className="bg-gradient-to-br from-muted/50 to-muted/30 rounded-2xl p-8 mb-8 border-l-4 border-secondary">
               <p className="text-lg text-foreground leading-relaxed mb-4">
-                Hack IOT 2024 challenged us to think beyond conventional solutions and create something that could make
-                a real difference in society. We saw an opportunity to address a critical gap:
-                <strong className="text-secondary"> children's awareness of their fundamental rights</strong>
-              </p>
+  Hack IOT 2024 challenged us to think beyond conventional solutions and create something that could make
+  a real difference in society. We saw an opportunity to address a critical gap:
+  <strong className="text-secondary"> children&apos;s awareness of their fundamental rights</strong>
+</p>
 
               <p className="text-lg text-foreground leading-relaxed">
                 Traditional educational methods often fail to engage young minds when teaching about rights and
@@ -227,8 +227,8 @@ export default function HackIOTDetails() {
                     We studied how children learn best, focusing on engaging and interactive methods. Our research showed that gamified learning could make rights education impactful, leading us to design 8-10 levels like matching cards and rapid fire questions.
                   </p>
                   <p className="text-muted-foreground leading-relaxed">
-                    <em>"Children learn best when they're having fun,"</em> guided our creation of WriteTheRights, ensuring each level, from match the following to situation-based challenges, was both educational and entertaining.
-                  </p>
+  <em>&quot;Children learn best when they&apos;re having fun,&quot;</em> guided our creation of WriteTheRights, ensuring each level, from match the following to situation-based challenges, was both educational and entertaining.
+</p>
                 </div>
               </div>
             </div>
@@ -260,10 +260,10 @@ export default function HackIOTDetails() {
                 <div className="bg-gradient-to-br from-secondary/10 to-primary/10 rounded-xl p-6 border border-secondary/20">
                   <h3 className="text-2xl font-bold text-foreground mb-3">Recognition & Impact</h3>
                   <p className="text-muted-foreground leading-relaxed mb-4">
-                    Our presentation showcased not just a game, but a vision for transforming children's education. The
-                    judges were impressed by our focus on social impact and the technical execution of creating smooth,
-                    engaging gameplay using JavaScript.
-                  </p>
+  Our presentation showcased not just a game, but a vision for transforming children&apos;s education. The
+  judges were impressed by our focus on social impact and the technical execution of creating smooth,
+  engaging gameplay using JavaScript.
+</p>
                   <p className="text-muted-foreground leading-relaxed">
                     Securing 2nd Runner-Up position validated our belief that technology can be a powerful tool for
                     social good, especially when it comes to empowering the next generation with knowledge of their
@@ -281,9 +281,9 @@ export default function HackIOTDetails() {
             <div className="max-w-3xl mx-auto">
               <h2 className="text-4xl font-bold text-foreground mb-6">Beyond the Competition</h2>
               <p className="text-xl text-muted-foreground leading-relaxed mb-8">
-                WriteTheRights represents more than a hackathon project - it's a testament to the power of combining
-                technology with social consciousness to create meaningful change.
-              </p>
+  WriteTheRights represents more than a hackathon project - it&apos;s a testament to the power of combining
+  technology with social consciousness to create meaningful change.
+</p>
 
               <div className="grid md:grid-cols-3 gap-8 mb-8">
                 <div>
@@ -301,10 +301,10 @@ export default function HackIOTDetails() {
               </div>
 
               <p className="text-lg text-muted-foreground leading-relaxed">
-                This experience taught us that the most impactful technology solutions are those that serve humanity's
-                most vulnerable - our children. WriteTheRights continues to inspire our work in educational technology,
-                reminding us that every line of code can contribute to building a more informed and empowered society.
-              </p>
+  This experience taught us that the most impactful technology solutions are those that serve humanity&apos;s
+  most vulnerable - our children. WriteTheRights continues to inspire our work in educational technology,
+  reminding us that every line of code can contribute to building a more informed and empowered society.
+</p>
             </div>
           </div>
         </section>

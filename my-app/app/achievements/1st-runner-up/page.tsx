@@ -96,9 +96,8 @@ export default function FrontendFusionDetails() {
 
           <div className="prose prose-lg max-w-none">
             <p className="text-xl text-muted-foreground leading-relaxed mb-8 text-center italic">
-              "Great frontend development is not just about code - it's about creating experiences that users love and
-              presenting solutions that inspire."
-            </p>
+  &quot;Great frontend development is not just about code - it&apos;s about creating experiences that users love and presenting solutions that inspire.&quot;
+</p>
 
             <div className="bg-gradient-to-br from-muted/50 to-muted/30 rounded-2xl p-8 mb-8 border-l-4 border-primary">
               <p className="text-lg text-foreground leading-relaxed mb-4">
@@ -238,9 +237,9 @@ export default function FrontendFusionDetails() {
                     intuitive, location-centric approach to event discovery.
                   </p>
                   <p className="text-muted-foreground leading-relaxed">
-                    <em>"Understanding the user is the first step to creating something they'll love,"</em> guided our
-                    approach as we mapped out user journeys for both event-goers and organizers.
-                  </p>
+  <em>&quot;Understanding the user is the first step to creating something they&apos;ll love,&quot;</em> guided our
+  approach as we mapped out user journeys for both event-goers and organizers.
+</p>
                 </div>
               </div>
             </div>
@@ -276,10 +275,10 @@ export default function FrontendFusionDetails() {
                 <div className="bg-gradient-to-br from-primary/10 to-secondary/10 rounded-xl p-6 border border-primary/20">
                   <h3 className="text-2xl font-bold text-foreground mb-3">Presentation Excellence</h3>
                   <p className="text-muted-foreground leading-relaxed mb-4">
-                    Our presentation strategy focused on storytelling - we didn't just show features, we demonstrated
-                    how the platform would transform the event discovery experience. We walked the judges through real
-                    user scenarios, showing both the attendee and organizer perspectives.
-                  </p>
+  Our presentation strategy focused on storytelling - we didn&apos;t just show features, we demonstrated
+  how the platform would transform the event discovery experience. We walked the judges through real
+  user scenarios, showing both the attendee and organizer perspectives.
+</p>
                   <p className="text-muted-foreground leading-relaxed">
                     The technical demonstration highlighted our JavaScript implementation, responsive design
                     patterns, colour theme, and the seamless integration between different platform components. Our 1st Runner-Up

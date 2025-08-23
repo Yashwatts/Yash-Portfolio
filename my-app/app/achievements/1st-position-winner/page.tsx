@@ -103,14 +103,15 @@ export default function IEEESSHDetails() {
 
           <div className="prose prose-lg max-w-none">
             <p className="text-xl text-muted-foreground leading-relaxed mb-8 text-center italic">
-              "In the realm of healthcare, every second counts, every decision matters, and every innovation has the
-              power to save lives."
-            </p>
+  &quot;In the realm of healthcare, every second counts, every decision matters, and every innovation has the
+  power to save lives.&quot;
+</p>
 
             <div className="bg-gradient-to-br from-muted/50 to-muted/30 rounded-2xl p-8 mb-8 border-l-4 border-primary">
               <p className="text-lg text-foreground leading-relaxed mb-4">
-                The IEEE SSH 2024 hackathon, split into two 24-hour phases—online and offline—challenged us to push the boundaries of healthcare technology. Winning 1st place in the online phase’s healthcare track fueled our drive to create <strong className="text-primary">MedEase</strong>, a platform designed to streamline patient care and hospital operations.
-              </p>
+  The IEEE SSH 2024 hackathon, split into two 24-hour phases—online and offline—challenged us to push the boundaries of healthcare technology. Winning 1st place in the online phase&apos;s healthcare track fueled our drive to create <strong className="text-primary">MedEase</strong>, a platform designed to streamline patient care and hospital operations.
+</p>
+
 
               <p className="text-lg text-foreground leading-relaxed">
                 Healthcare systems often face inefficiencies, fragmented communication, and poor patient experiences. MedEase aimed to address these by creating a unified ecosystem connecting patients, doctors, and hospital administration seamlessly.
@@ -259,8 +260,9 @@ export default function IEEESSHDetails() {
                     Selected for the offline phase at KIET Group of Institutions, Ghaziabad, we faced another intense 24-hour hackathon. This round pushed us to refine MedEase further, collaborating in person and tackling new challenges under tight constraints.
                   </p>
                   <p className="text-muted-foreground leading-relaxed">
-                    Though we didn’t win, the experience was invaluable. We gained insights into teamwork, real-time problem-solving, and the complexities of healthcare systems, fueling our passion for future innovations.
-                  </p>
+  Though we didn&apos;t win, the experience was invaluable. We gained insights into teamwork, real-time problem-solving, and the complexities of healthcare systems, fueling our passion for future innovations.
+</p>
+
                 </div>
               </div>
             </div>
@@ -273,8 +275,8 @@ export default function IEEESSHDetails() {
                 <div className="bg-gradient-to-br from-primary/10 to-secondary/10 rounded-xl p-6 border border-primary/20">
                   <h3 className="text-2xl font-bold text-foreground mb-3">The Moment of Truth: Final Presentation</h3>
                   <p className="text-muted-foreground leading-relaxed mb-4">
-                    In the online phase, our presentation showcased MedEase’s potential to revolutionize healthcare. We demonstrated its seamless integration, real-time features, and patient-centric design, earning us the top spot.
-                  </p>
+  In the online phase, our presentation showcased MedEase&apos;s potential to revolutionize healthcare. We demonstrated its seamless integration, real-time features, and patient-centric design, earning us the top spot.
+</p>
                   <p className="text-muted-foreground leading-relaxed">
                     The offline phase, while not a victory, taught us resilience and adaptability. Presenting to judges at KIET, we shared our vision and learned from feedback, strengthening our resolve to innovate.
                   </p>
