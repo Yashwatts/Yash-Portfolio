@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import { Playfair_Display, Source_Sans_3 as Source_Sans_Pro, Pacifico } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
+import { Analytics } from "@vercel/analytics/next";
 
 // Playfair Display
 const playfairDisplay = Playfair_Display({
@@ -49,6 +50,7 @@ export default function RootLayout({
           disableTransitionOnChange
         >
           {children}
+          <Analytics /> {/* Add Vercel Analytics component */}
         </ThemeProvider>
       </body>
     </html>
