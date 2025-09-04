@@ -29,7 +29,7 @@ const pacifico = Pacifico({
 });
 
 export const metadata: Metadata = {
-  title: "Yash Watts - Portfolio",
+  title: "Yash Watts",
   description: "B.Tech CSE Student | AI/ML Developer | Web Developer",
 };
 
