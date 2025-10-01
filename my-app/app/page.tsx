@@ -223,11 +223,11 @@ export default function Portfolio() {
 
   const featuredCertifications = [
     {
-      title: "Responsive Web Design",
-      topic: "Web Development & Design",
-      issuer: "freeCodeCamp",
-      date: "October 2023",
-      credentialId: "https://freecodecamp.org/certification/wattsyash21/responsive-web-design",
+      title: "Certificate of Appreciation",
+      topic: "Designed and Developed the Official Website for Rallison Paints Pvt. Ltd.",
+      issuer: "Rallison Paints Pvt. Ltd.",
+      date: "September 2025",
+      credentialId: "https://drive.google.com/file/d/11R4_fwvrFVzgb4GFOovQPFB_rFv4UGdQ/view?usp=sharing",
       verified: true,
     },
     {

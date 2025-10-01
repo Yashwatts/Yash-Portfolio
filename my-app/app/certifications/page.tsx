@@ -9,6 +9,16 @@ import Link from "next/link"
 export default function AllCertifications() {
   const allCertifications = [
     {
+      title: "Certificate of Appreciation",
+      topic: "Designed and Developed the Official Website for Rallison Paints Pvt. Ltd.",
+      issuer: "Rallison Paints Pvt. Ltd.",
+      date: "September 2025",
+      credentialId: "N/A",
+      verified: true,
+      skills: ["Full Stack Development", "Next.js", "Firebase", "Cloud Firestore"],
+      certificateUrl: "https://drive.google.com/file/d/11R4_fwvrFVzgb4GFOovQPFB_rFv4UGdQ/view?usp=sharing",
+    },
+    {
       title: "Responsive Web Design",
       topic: "Web Development & Design",
       issuer: "freeCodeCamp",
