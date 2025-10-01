@@ -176,16 +176,11 @@ export default function AllCertifications() {
                     </div>
 
                     <div className="flex flex-wrap gap-1">
-                      {cert.skills.slice(0, 3).map((skill, skillIndex) => (
+                      {cert.skills.map((skill, skillIndex) => (
                         <Badge key={skillIndex} variant="secondary" className="text-xs">
                           {skill}
                         </Badge>
                       ))}
-                      {cert.skills.length > 3 && (
-                        <Badge variant="outline" className="text-xs">
-                          +{cert.skills.length - 3}
-                        </Badge>
-                      )}
                     </div>
 
                     <div className="pt-2 border-t border-border">
