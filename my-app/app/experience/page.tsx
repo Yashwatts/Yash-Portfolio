@@ -7,18 +7,18 @@ import Image from "next/image"
 export default function ExperiencePage() {
   const allExperiences = [
     {
-      title: "Web Developer",
-      company: "Rallison Paint",
-      period: "Aug 2025 - Present",
-      status: "Current",
+      title: "Full Stack Developer",
+      company: "Rallison Paints Pvt. Ltd.",
+      period: "Aug 2025 - Sep 2025",
+      status: "Completed",
       description:
-        "Currently developing a comprehensive website for Rallison Paint, focusing on modern design, user experience, and business functionality. Implementing responsive design and optimizing for performance and SEO.",
-      technologies: ["React", "Next.js", "Tailwind CSS", "Node.js"],
+        "As a Full Stack Developer at Rallison Paints Pvt. Ltd., I was responsible for designing, developing and maintaining end-to-end web applications to support the company's business operations. Successfully delivered a comprehensive website with modern design, enhanced user experience, and robust business functionality. Implemented responsive design and optimized for performance and SEO.",
+      technologies: ["Next.js", "Firebase", "Cloud Firestore"],
       logo: "/rallison-logo.png",
       side: "left",
     },
     {
-      title: "Web Developer",
+      title: "Full Stack Developer",
       company: "BhatiaSales",
       period: "Feb 2025 - Apr 2025",
       status: "Completed",

@@ -169,6 +169,32 @@ export default function Portfolio() {
   const featuredProjects = [
     {
       id: 1,
+      title: "Meri City",
+      category: "web-development",
+      description:
+        "Civic Sense is a comprehensive full-stack civic engagement platform that revolutionizes how citizens interact with municipal services by enabling smart complaint reporting with AI-powered image analysis, automatic department routing, and real-time tracking. The platform features multi-role dashboards for citizens, government departments, and city administrators, incorporating community engagement through voting and discussion systems, gamified rewards for civic participation, real-time chat communication and advanced analytics with geographic visualization. Deployed across multiple cities with Google OAuth authentication, the mobile-responsive application streamlines complaint resolution workflows while enhancing government transparency and accountability through automated department assignment, comprehensive user moderation systems, and data-driven performance metrics that foster improved citizen-government collaboration.",
+      image: "/mericity.png",
+      technologies: ["React.js", "Node.js", "MongoDB", "Express.js", "Google Vision AI", "Twilio API", "Google Maps API", "JWT", "OAuth", "Tailwind CSS"],
+      githubUrl: "https://github.com/Yashwatts/mericity",
+      liveUrl: "https://www.mericity.app",
+      status: "Live",
+      year: "2025",
+    },
+    {
+      id: 2,
+      title: "Demstify-legal-documents",
+      category: "ai-ml",
+      description:
+        "Our solution is an AI-powered legal document analysis platform that makes complex legal documents easy to understand for everyone. When users upload PDF legal documents like contracts, court judgments, or agreements, our system automatically extracts the text and uses artificial intelligence to analyze the content. The platform provides instant summaries of lengthy documents, identifies potential legal risks and problems, explains difficult legal terms in simple language, and answers specific questions about the document. Users can also compare different versions of documents to see what has changed over time. The system is designed to work like having a legal expert available 24/7 who can read through complicated legal papers and explain them in plain English. This helps both lawyers save time on research and regular people understand important legal documents without needing expensive legal consultations.",
+      image: "/genai.png",
+      technologies: ["Next.js", "Python", "Tailwind CSS", "Google Gemini AI", "TypeScript", "File Parsing"],
+      githubUrl: "https://github.com/rohit-2059/Demstify-legal-documents",
+      liveUrl: "https://demystify-documentation.vercel.app",
+      status: "Live",
+      year: "2025",
+    },
+    {
+      id: 3,
       title: "DermaSense.ai",
       category: "ai-ml",
       description:
@@ -181,7 +207,7 @@ export default function Portfolio() {
       year: "2025",
     },
     {
-      id: 2,
+      id: 4,
       title: "BhatiaSales Website",
       category: "e-commerce",
       description:
@@ -194,7 +220,7 @@ export default function Portfolio() {
       year: "2025",
     },
     {
-      id: 3,
+      id: 5,
       title: "MedEase Healthcare Platform",
       category: "healthcare",
       description:
@@ -207,7 +233,7 @@ export default function Portfolio() {
       year: "2024",
     },
     {
-      id: 4,
+      id: 6,
       title: "Phishing Detection Tool",
       category: "cybersecurity",
       description:
@@ -826,30 +852,30 @@ export default function Portfolio() {
                           />
                         </div>
                         <div className="flex items-center space-x-2">
-                          <span className="px-2 py-1 bg-green-100 dark:bg-green-900/30 text-green-800 dark:text-green-200 text-xs rounded-full font-medium">
-                            Current
+                          <span className="px-2 py-1 bg-blue-100 dark:bg-blue-900/30 text-blue-800 dark:text-blue-200 text-xs rounded-full font-medium">
+                            Completed
                           </span>
                           <Briefcase className="h-4 w-4 text-primary" />
                         </div>
                       </div>
-                      <h3 className="text-lg font-bold text-card-foreground mb-1">Web Developer</h3>
-                      <h4 className="text-base font-semibold text-destructive mb-2">Rallison Paint</h4>
+                      <h3 className="text-lg font-bold text-card-foreground mb-1">Full Stack Developer</h3>
+                      <h4 className="text-base font-semibold text-destructive mb-2">Rallison Paints Pvt. Ltd.</h4>
                       <p className="text-sm text-muted-foreground mb-3 line-clamp-3">
-                        Currently developing a comprehensive website for Rallison Paint, focusing on modern design and
-                        user experience.
+                        As a Full Stack Developer at Rallison Paints Pvt. Ltd., designed, developed and maintained
+                        end-to-end web applications to support business operations.
                       </p>
                       <div className="flex flex-wrap gap-1 justify-end">
                         <span className="px-2 py-1 bg-blue-100 dark:bg-blue-900/30 text-blue-800 dark:text-blue-200 text-xs rounded">
-                          React
-                        </span>
-                        <span className="px-2 py-1 bg-green-100 dark:bg-green-900/30 text-green-800 dark:text-green-200 text-xs rounded">
                           Next.js
                         </span>
+                        <span className="px-2 py-1 bg-green-100 dark:bg-green-900/30 text-green-800 dark:text-green-200 text-xs rounded">
+                          Firebase
+                        </span>
                         <span className="px-2 py-1 bg-purple-100 dark:bg-purple-900/30 text-purple-800 dark:text-purple-200 text-xs rounded">
-                          Tailwind CSS
+                          Cloud Firestore
                         </span>
                       </div>
-                      <div className="text-xs text-muted-foreground mt-2 text-right">Aug 2025 - Present</div>
+                      <div className="text-xs text-muted-foreground mt-2 text-right">Aug 2025 - Sep 2025</div>
                     </CardContent>
                   </Card>
                 </div>
@@ -880,11 +906,11 @@ export default function Portfolio() {
                           />
                         </div>
                       </div>
-                      <h3 className="text-lg font-bold text-card-foreground mb-1">Web Developer</h3>
+                      <h3 className="text-lg font-bold text-card-foreground mb-1">Full Stack Developer</h3>
                       <h4 className="text-base font-semibold text-destructive mb-2">BhatiaSales</h4>
                       <p className="text-sm text-muted-foreground mb-3 line-clamp-3">
                         Developed a complete website for BhatiaSales, a motorcycle dealer featuring buy/sell
-                        functionality and admin dashboard.
+                        functionality for second-hand vehicles, service booking, admin dashboard and more.
                       </p>
                       <div className="flex flex-wrap gap-1">
                         <span className="px-2 py-1 bg-orange-100 dark:bg-orange-900/30 text-orange-800 dark:text-orange-200 text-xs rounded">

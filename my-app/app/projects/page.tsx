@@ -13,6 +13,32 @@ export default function AllProjects() {
   const allProjects = [
     {
       id: 1,
+      title: "Meri City",
+      category: "web-development",
+      description:
+        "Civic Sense is a comprehensive full-stack civic engagement platform that revolutionizes how citizens interact with municipal services by enabling smart complaint reporting with AI-powered image analysis, automatic department routing, and real-time tracking. The platform features multi-role dashboards for citizens, government departments, and city administrators, incorporating community engagement through voting and discussion systems, gamified rewards for civic participation, real-time chat communication and advanced analytics with geographic visualization. Deployed across multiple cities with Google OAuth authentication, the mobile-responsive application streamlines complaint resolution workflows while enhancing government transparency and accountability through automated department assignment, comprehensive user moderation systems, and data-driven performance metrics that foster improved citizen-government collaboration.",
+      image: "/mericity.png",
+      technologies: ["React.js", "Node.js", "MongoDB", "Express.js", "Google Vision AI", "Twilio API", "Google Maps API", "JWT", "OAuth", "Tailwind CSS"],
+      githubUrl: "https://github.com/Yashwatts/mericity",
+      liveUrl: "https://www.mericity.app",
+      status: "Live",
+      year: "2025",
+    },
+    {
+      id: 2,
+      title: "Demstify-legal-documents",
+      category: "ai-ml",
+      description:
+        "Our solution is an AI-powered legal document analysis platform that makes complex legal documents easy to understand for everyone. When users upload PDF legal documents like contracts, court judgments, or agreements, our system automatically extracts the text and uses artificial intelligence to analyze the content. The platform provides instant summaries of lengthy documents, identifies potential legal risks and problems, explains difficult legal terms in simple language, and answers specific questions about the document. Users can also compare different versions of documents to see what has changed over time. The system is designed to work like having a legal expert available 24/7 who can read through complicated legal papers and explain them in plain English. This helps both lawyers save time on research and regular people understand important legal documents without needing expensive legal consultations.",
+      image: "/genai.png",
+      technologies: ["Next.js", "Python", "Tailwind CSS", "Google Gemini AI", "TypeScript", "File Parsing"],
+      githubUrl: "https://github.com/rohit-2059/Demstify-legal-documents",
+      liveUrl: "https://demystify-documentation.vercel.app",
+      status: "Live",
+      year: "2025",
+    },
+    {
+      id: 3,
       title: "DermaSense.ai",
       category: "ai-ml",
       description:
@@ -25,7 +51,7 @@ export default function AllProjects() {
       year: "2025",
     },
     {
-      id: 2,
+      id: 4,
       title: "BhatiaSales Website",
       category: "e-commerce",
       description:
@@ -38,7 +64,7 @@ export default function AllProjects() {
       year: "2025",
     },
     {
-      id: 3,
+      id: 5,
       title: "Intelligent CPU Scheduler Simulator",
       category: "education",
       description:
@@ -51,7 +77,7 @@ export default function AllProjects() {
       year: "2025",
     },
     {
-      id: 4,
+      id: 6,
       title: "Expense Vault",
       category: "finance",
       description:
@@ -64,7 +90,7 @@ export default function AllProjects() {
       year: "2025",
     },
     {
-      id: 5,
+      id: 7,
       title: "Anxiety Relief Bot",
       category: "healthcare",
       description:
@@ -77,7 +103,7 @@ export default function AllProjects() {
       year: "2025",
     },
     {
-      id: 6,
+      id: 8,
       title: "MedEase Healthcare Platform",
       category: "healthcare",
       description:
@@ -90,7 +116,7 @@ export default function AllProjects() {
       year: "2024",
     },
     {
-      id: 7,
+      id: 9,
       title: "Phishing Detection Tool",
       category: "cybersecurity",
       description:
@@ -103,7 +129,7 @@ export default function AllProjects() {
       year: "2024",
     },
     {
-      id: 8,
+      id: 10,
       title: "WriteTheRights Gaming Platform",
       category: "education",
       description:
@@ -116,7 +142,7 @@ export default function AllProjects() {
       year: "2024",
     },
     {
-      id: 9,
+      id: 11,
       title: "Event Management Website",
       category: "web-development",
       description:
