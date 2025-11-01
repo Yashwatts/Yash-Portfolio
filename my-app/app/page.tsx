@@ -208,14 +208,15 @@ export default function Portfolio() {
     },
     {
       id: 4,
-      title: "BhatiaSales Website",
-      category: "e-commerce",
+      title: "To-Do Mobile App",
+      category: "mobile-app",
       description:
-        "E-commerce platform for a motorcycle dealer in Kalka, Haryana, featuring buy/sell functionality for second-hand vehicles, service booking, online vehicle reservations, and accessories showcase. Built an admin dashboard to manage product listings, handle customer requests, and approve/decline submissions — providing a seamless digital experience for both customers and administrators.",
-      image: "/bhatiasales.png",
-      technologies: ["HTML", "Tailwind CSS", "Javascript", "PHP", "MySQL"],
-      githubUrl: "https://github.com/Yashwatts/bhatiasales",
-      liveUrl: "http://www.bhatiasales.shop",
+        "Developed a full-featured Android To-Do List application using Java, focused on productivity, smart reminders, and seamless task organization. The app supports secure multi-account sign-in through Google OAuth, offline-first data storage with SharedPreferences, and a cluster-based task grouping system with customizable color themes and pinned categories. Users can set intelligent reminder notifications via AlarmManager, manage archive states for completed projects, and track progress with real-time visual indicators and haptic feedback. Built using the MVC architecture and Material Design principles, the app includes RecyclerView-based grid layouts, smooth UI animations, adaptive light/dark themes, dynamic status bars and a side navigation drawer for intuitive access. Advanced Android concepts like custom adapters, ViewHolder pattern, BroadcastReceiver, notification scheduling and proper permission handling were implemented.",
+      image: "/todo.jpg",
+      technologies: ["Java", "Android SDK", "OAuth", "Gradle", "Android Development"],
+      githubUrl: "/",
+      liveUrl: "/",
+      apkUrl: "https://drive.google.com/file/d/1pZrFQunHg_ANuDpjjG9DGOaR6FidtmYO/view?usp=sharing",
       status: "Live",
       year: "2025",
     },
@@ -234,16 +235,16 @@ export default function Portfolio() {
     },
     {
       id: 6,
-      title: "Phishing Detection Tool",
-      category: "cybersecurity",
+      title: "Rallison Paints Pvt. Ltd.",
+      category: "business",
       description:
-        "Web tool for detecting phishing emails and texts using trained ML model. Features offered: Real-time prediction of phishing probability, Suspicion percentage display.",
-      image: "/Phishing.png",
-      technologies: ["Flask", "Python", "HTML", "CSS", "JavaScript"],
-      githubUrl: "https://github.com/Yashwatts/Phishing-Detection-Tool",
-      liveUrl: "/",
-      status: "Not Live",
-      year: "2024",
+        "As a Full Stack Developer at Rallison Paints Pvt. Ltd., I was responsible for designing, developing and maintaining end-to-end web applications to support the company's business operations. Successfully delivered a comprehensive website with modern design, enhanced user experience, and robust business functionality. Implemented responsive design and optimized for performance and SEO.",
+      image: "/rallison.png",
+      technologies: ["Next.js", "Firebase", "Cloud Firestore"],
+      githubUrl: "/",
+      liveUrl: "https://www.rallisonpaints.com",
+      status: "Live",
+      year: "2025",
     },
   ]
 
@@ -1074,7 +1075,7 @@ export default function Portfolio() {
 
           <div className="grid lg:grid-cols-2 gap-8">
             {featuredProjects.map((project, index) => (
-              <Card key={index} className="group hover:shadow-xl transition-all duration-300 border-border bg-card">
+              <Card key={index} className="group hover:shadow-xl transition-all duration-300 border-border bg-card flex flex-col">
                 <div className="relative overflow-hidden rounded-t-lg">
                   <img
                     src={project.image || "/placeholder.svg"}
@@ -1095,7 +1096,7 @@ export default function Portfolio() {
                     </span>
                   </div>
                 </div>
-                <CardContent className="p-6">
+                <CardContent className="p-6 flex flex-col flex-grow">
                   <div className="flex items-center justify-between mb-3">
                     <h3 className="text-xl font-bold text-card-foreground">{project.title}</h3>
                     <span className="text-xs text-muted-foreground bg-muted px-2 py-1 rounded">{project.category}</span>
@@ -1108,22 +1109,35 @@ export default function Portfolio() {
                       </span>
                     ))}
                   </div>
-                  <div className="flex items-center justify-between">
+                  <div className="flex items-center justify-between mt-auto">
                     <span className="text-xs text-muted-foreground">{project.year}</span>
                     <div className="flex space-x-2">
-                      <a href={project.githubUrl} target="_blank" rel="noopener noreferrer">
-                        <Button size="sm" variant="outline" className="h-8 px-3 bg-transparent">
-                          <Github className="h-3 w-3 mr-1" />
-                          Code
-                        </Button>
-                      </a>
-                      {project.liveUrl !== "/" && (
-                        <a href={project.liveUrl} target="_blank" rel="noopener noreferrer">
+                      {project.apkUrl ? (
+                        <a href={project.apkUrl} target="_blank" rel="noopener noreferrer">
                           <Button size="sm" className="h-8 px-3">
-                            <ExternalLink className="h-3 w-3 mr-1" />
-                            Demo
+                            <Download className="h-3 w-3 mr-1" />
+                            Download APK
                           </Button>
                         </a>
+                      ) : (
+                        <>
+                          {project.githubUrl !== "/" && (
+                            <a href={project.githubUrl} target="_blank" rel="noopener noreferrer">
+                              <Button size="sm" variant="outline" className="h-8 px-3 bg-transparent">
+                                <Github className="h-3 w-3 mr-1" />
+                                Code
+                              </Button>
+                            </a>
+                          )}
+                          {project.liveUrl !== "/" && (
+                            <a href={project.liveUrl} target="_blank" rel="noopener noreferrer">
+                              <Button size="sm" className="h-8 px-3">
+                                <ExternalLink className="h-3 w-3 mr-1" />
+                                Demo
+                              </Button>
+                            </a>
+                          )}
+                        </>
                       )}
                     </div>
                   </div>
