@@ -332,7 +332,7 @@ export default function Portfolio() {
 
   const downloadResume = () => {
     const link = document.createElement("a")
-    link.href = "/resume.pdf"
+    link.href = "/Yash Resume.pdf"
     link.download = "Yash_Watts_Resume.pdf"
     document.body.appendChild(link)
     link.click()
@@ -545,192 +545,15 @@ export default function Portfolio() {
                 <ChevronDown className="ml-2 h-5 w-5" />
               </Button>
 
-              <Dialog open={isResumeOpen} onOpenChange={setIsResumeOpen}>
-                <DialogTrigger asChild>
-                  <Button
-                    variant="outline"
-                    size="lg"
-                    className="border-primary text-primary hover:bg-primary hover:text-primary-foreground px-8 py-3 text-lg bg-transparent"
-                  >
-                    View Resume
-                    <FileText className="ml-2 h-5 w-5" />
-                  </Button>
-                </DialogTrigger>
-                <DialogContent className="max-w-4xl max-h-[80vh] overflow-y-auto">
-                  <DialogHeader>
-                    <DialogTitle className="text-2xl font-bold text-center underline">Resume</DialogTitle>
-                  </DialogHeader>
-                  <div className="space-y-6 text-sm">
-                    <div className="text-center">
-                      <h1 className="text-2xl font-bold">Yash Watts</h1>
-                      <p className="text-muted-foreground">
-                        P: +91 8968532929 | yashwatts2005@gmail.com | https://www.linkedin.com/in/yashwatts
-                      </p>
-                    </div>
-
-                    <div>
-                      <h2 className="text-lg font-bold mb-3 text-primary">ACHIEVEMENTS</h2>
-                      <div className="space-y-4">
-                        <div>
-                          <div className="flex justify-between items-start mb-1">
-                            <h3 className="font-semibold">Patent/IPR Filed</h3>
-                            <span className="text-muted-foreground">Aug 2025</span>
-                          </div>
-                          <p className="mb-2">
-                            ● Self-evolving AI System Utilizing Quantum Computing for Autonomous Learning and Adaptive
-                            Decision
-                          </p>
-                          <p>
-                            ● Successfully filed Intellectual Property Rights (IPR) request with DRD; currently pending
-                            verification for official recognition.
-                          </p>
-                        </div>
-
-                        <div>
-                          <div className="flex justify-between items-start mb-1">
-                            <h3 className="font-semibold">IEEE SSH 2024</h3>
-                            <span className="text-muted-foreground">Oct 2024</span>
-                          </div>
-                          <p className="text-sm text-muted-foreground mb-2">
-                            A Competitive Hackathon organized by IEEE, KIET Group of Institutions
-                          </p>
-                          <p className="mb-1">● Secured 1st position in hackathon in healthcare track.</p>
-                          <p className="mb-1">
-                            ● Made healthcare web-application MedEase to bring together patient care, provider tools,
-                            and collaboration between hospitals into one user-friendly system.
-                          </p>
-                          <p>● Tech Stack: HTML, CSS, Javascript, PHP, MySQL</p>
-                        </div>
-
-                        <div>
-                          <div className="flex justify-between items-start mb-1">
-                            <h3 className="font-semibold">Hack IOT</h3>
-                            <span className="text-muted-foreground">Feb 2024</span>
-                          </div>
-                          <p className="text-sm text-muted-foreground mb-2">
-                            A Competitive Hackathon Organized by ECE School of LPU
-                          </p>
-                          <p className="mb-1">
-                            ● Secured 2nd Runner-Up position in hackathon which showcased web-application making and
-                            leadership skills.
-                          </p>
-                          <p className="mb-1">
-                            ● Made a gaming web-application WriteTheRights for kids to aware them about their rights.
-                          </p>
-                          <p>● Tech Stack: HTML, CSS, Javascript</p>
-                        </div>
-
-                        <div>
-                          <div className="flex justify-between items-start mb-1">
-                            <h3 className="font-semibold">Frontend Fusion</h3>
-                            <span className="text-muted-foreground">Dec 2023</span>
-                          </div>
-                          <p className="text-sm text-muted-foreground mb-2">A Competition on Website Presentation</p>
-                          <p className="mb-1">
-                            ● Secured 1st Runner-Up position in the competition which showcased Frontend skills and
-                            Presentation skills.
-                          </p>
-                          <p className="mb-1">
-                            ● Made an event management website in which users can able to book tickets of movies,
-                            concerts, standup shows, etc. in their respective locations and can also list their events
-                            in our website.
-                          </p>
-                          <p>● Tech Stack: HTML, CSS, Javascript</p>
-                        </div>
-                      </div>
-                    </div>
-
-                    <div>
-                      <h2 className="text-lg font-bold mb-3 text-primary">PROJECTS</h2>
-                      <div className="space-y-4">
-                        <div>
-                          <div className="flex justify-between items-start mb-1">
-                            <h3 className="font-semibold">DermaSense.ai</h3>
-                            <span className="text-muted-foreground">Jan 2025 – Feb 2025</span>
-                          </div>
-                          <p className="text-sm text-muted-foreground mb-2">AI model for detecting skin diseases.</p>
-                          <p className="mb-1">
-                            ● Developed an AI-powered web app using deep learning to analyze skin images and detect
-                            potential diseases.
-                          </p>
-                          <p className="mb-1">
-                            ● Features offered: Image upload for diagnosis, AI-driven prediction, detailed insights on
-                            disease causes and treatments, and assistance in finding and consulting nearby
-                            dermatologists.
-                          </p>
-                          <p>
-                            ● Tech Stack: Python, TensorFlow, OpenCV, Flask, Node.js, MongoDB, HTML/CSS/JS, Google
-                            Colab.
-                          </p>
-                        </div>
-
-                        <div>
-                          <div className="flex justify-between items-start mb-1">
-                            <h3 className="font-semibold">Phishing Detection Tool</h3>
-                            <span className="text-muted-foreground">Nov 2024 – Dec 2024</span>
-                          </div>
-                          <p className="text-sm text-muted-foreground mb-2">Cybersecurity Web-Application</p>
-                          <p className="mb-1">
-                            ● Developed a web tool for detecting phishing emails, texts by analyzing content using a
-                            trained ML model.
-                          </p>
-                          <p className="mb-1">
-                            ● Features offered: Real-time prediction of phishing probability, Suspicion percentage
-                            display.
-                          </p>
-                          <p>● Tech Stack: Flask (Python), HTML, CSS, Javascript.</p>
-                        </div>
-
-                        <div>
-                          <div className="flex justify-between items-start mb-1">
-                            <h3 className="font-semibold">MedEase</h3>
-                            <span className="text-muted-foreground">Sep 2024 – Nov 2024</span>
-                          </div>
-                          <p className="text-sm text-muted-foreground mb-2">Healthcare Web-Application</p>
-                          <p className="mb-1">
-                            ● Designed to bring together patient care, provider tools, and collaboration between
-                            hospitals into one user-friendly system.
-                          </p>
-                          <p className="mb-1">
-                            ● Features offered: Booking and Queuing, Automated Bed Availability, Role-Based
-                            Authentication, City-Wide Module, Inventory and Complaint Management, Patient Engagement
-                            Tools (Chat System, Chatbot)
-                          </p>
-                          <p>● Tech Stack: HTML, CSS, Javascript, PHP, MySQL</p>
-                        </div>
-                      </div>
-                    </div>
-
-                    <div>
-                      <h2 className="text-lg font-bold mb-3 text-primary">EDUCATION</h2>
-                      <div>
-                        <div className="flex justify-between items-start mb-1">
-                          <h3 className="font-semibold">Lovely Professional University – Phagwara, Punjab, India</h3>
-                          <span className="text-muted-foreground">May 2027</span>
-                        </div>
-                        <p>Bachelor of Technology, Computer Science Engineering</p>
-                      </div>
-                    </div>
-
-                    <div>
-                      <h2 className="text-lg font-bold mb-3 text-primary">Skills</h2>
-                      <p className="mb-2">
-                        <strong>Technologies:</strong> Python | C++ | Java | HTML | CSS | TailwindCSS | Javascript |
-                        React.js | Node.js | Next.js | MongoDB | PHP | MySQL
-                      </p>
-                      <p>
-                        <strong>Soft Skills:</strong> Leadership | Team Management | Presentation
-                      </p>
-                    </div>
-                  </div>
-                  <div className="flex justify-center mt-6">
-                    <Button onClick={downloadResume} className="cursor-creative">
-                      <Download className="mr-2 h-4 w-4" />
-                      Download Resume
-                    </Button>
-                  </div>
-                </DialogContent>
-              </Dialog>
+              <Button
+                variant="outline"
+                size="lg"
+                onClick={() => window.open("/Yash Resume.pdf", "_blank")}
+                className="border-primary text-primary hover:bg-primary hover:text-primary-foreground px-8 py-3 text-lg bg-transparent"
+              >
+                View Resume
+                <FileText className="ml-2 h-5 w-5" />
+              </Button>
 
               <Button
                 size="lg"
