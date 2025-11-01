@@ -276,15 +276,15 @@ export default function Portfolio() {
 
   const featuredAchievements = [
     {
-      title: "Patent Filed",
+      title: "Patent Verified",
       slug: "patent-filing-2025",
       subtitle: "Self-evolving AI System Utilizing Quantum Computing",
       date: "August 2025",
       location: "DRD (Department of Research and Development)",
       type: "patent",
-      status: "Pending Verification",
+      status: "Verified - Publication Pending",
       description:
-        "Successfully filed Intellectual Property Rights (IPR) request with DRD for autonomous learning and adaptive decision-making system. Currently pending verification for official recognition.",
+        "Successfully filed and verified Intellectual Property Rights (IPR) with DRD for autonomous learning and adaptive decision-making system. Patent has been verified and is currently pending official publication.",
       image: null,
       technologies: [],
     },
