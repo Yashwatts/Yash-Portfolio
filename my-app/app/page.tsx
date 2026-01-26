@@ -188,7 +188,7 @@ export default function Portfolio() {
         "Our solution is an AI-powered legal document analysis platform that makes complex legal documents easy to understand for everyone. When users upload PDF legal documents like contracts, court judgments, or agreements, our system automatically extracts the text and uses artificial intelligence to analyze the content. The platform provides instant summaries of lengthy documents, identifies potential legal risks and problems, explains difficult legal terms in simple language, and answers specific questions about the document. Users can also compare different versions of documents to see what has changed over time. The system is designed to work like having a legal expert available 24/7 who can read through complicated legal papers and explain them in plain English. This helps both lawyers save time on research and regular people understand important legal documents without needing expensive legal consultations.",
       image: "/genai.png",
       technologies: ["Next.js", "Python", "Tailwind CSS", "Google Gemini AI", "TypeScript", "File Parsing"],
-      githubUrl: "https://github.com/rohit-2059/Demstify-legal-documents",
+      githubUrl: "https://github.com/Yashwatts/Demystify-Legal-Documents",
       liveUrl: "https://demystify-documentation.vercel.app",
       status: "Live",
       year: "2025",
