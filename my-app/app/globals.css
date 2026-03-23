@@ -293,6 +293,22 @@
   .animate-fade-in-up {
     animation: fadeInUp 1s ease-out forwards;
   }
+
+  /* Keep sections hidden until they intersect viewport */
+  .scroll-animate {
+    opacity: 0;
+    transform: translateY(28px);
+    visibility: hidden;
+    pointer-events: none;
+    will-change: opacity, transform;
+  }
+
+  .scroll-animate.animate-fade-in-up {
+    opacity: 1;
+    transform: translateY(0);
+    visibility: visible;
+    pointer-events: auto;
+  }
   .animate-scale-in {
     animation: scaleIn 0.8s ease-out forwards;
   }

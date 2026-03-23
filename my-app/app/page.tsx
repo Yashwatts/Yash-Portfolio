@@ -50,6 +50,7 @@ export default function Portfolio() {
   const [selectedCategory, setSelectedCategory] = useState("all")
   const [isResumeOpen, setIsResumeOpen] = useState(false)
   const [submitted, setSubmitted] = useState(false)
+  const [isSending, setIsSending] = useState(false)
   const [error, setError] = useState<string | null>(null)
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 })
   const [expandedProjectIds, setExpandedProjectIds] = useState<number[]>([])
@@ -72,6 +73,7 @@ export default function Portfolio() {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
           entry.target.classList.add("revealed")
+          observer.unobserve(entry.target)
         }
       })
     }, observerOptions)
@@ -85,6 +87,9 @@ export default function Portfolio() {
   // Handle form submission for Resend
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
+    if (isSending) return
+
+    setIsSending(true)
     setError(null)
     setSubmitted(false)
 
@@ -116,6 +121,8 @@ export default function Portfolio() {
       }
     } catch (error) {
       setError("An error occurred. Please try again or contact me directly at yashwatts2005@gmail.com.")
+    } finally {
+      setIsSending(false)
     }
   }
 
@@ -132,14 +139,14 @@ export default function Portfolio() {
           const offsetHeight = element.offsetHeight
 
           if (scrollPosition >= offsetTop && scrollPosition < offsetTop + offsetHeight) {
-            setActiveSection(section)
+            setActiveSection((prev) => (prev === section ? prev : section))
             break
           }
         }
       }
     }
 
-    window.addEventListener("scroll", handleScroll)
+    window.addEventListener("scroll", handleScroll, { passive: true })
     return () => window.removeEventListener("scroll", handleScroll)
   }, [])
 
@@ -149,10 +156,14 @@ export default function Portfolio() {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
             entry.target.classList.add("animate-fade-in-up")
+            observer.unobserve(entry.target)
           }
         })
       },
-      { threshold: 0.1 },
+      {
+        threshold: 0.05,
+        rootMargin: "0px 0px -20% 0px",
+      },
     )
 
     const elements = document.querySelectorAll(".scroll-animate")
@@ -259,27 +270,36 @@ export default function Portfolio() {
 
   const featuredCertifications = [
     {
-      title: "Certificate of Appreciation",
-      topic: "Designed and Developed the Official Website for Rallison Paints Pvt. Ltd.",
+      title: "PHP with Laravel for Beginners",
       issuer: "Rallison Paints Pvt. Ltd.",
       date: "September 2025",
-      credentialId: "https://drive.google.com/file/d/11R4_fwvrFVzgb4GFOovQPFB_rFv4UGdQ/view?usp=sharing",
-      verified: true,
-    },
-    {
-      title: "6-Week Live Training in Android Development",
-      topic: "Android Development",
-      issuer: "Techvanto Academy, New Delhi",
-      date: "July 2025",
-      credentialId: "https://drive.google.com/file/d/1wMPDzMPKVCFq7KKPfyH9FHtHB4A9SsCg/view?usp=sharing",
+      year: "2026",
+      providerTag: "UDEMY",
+      image: "/php_with_laravel.png",
+      skills: ["PHP and Laravel fundamentals", "MVC architecture and routing", "CRUD operations and database handling"],
+      credentialId: "https://drive.google.com/file/d/1nz88os6MEpH438Y6WSDFrzJaF69SI_Ra/view?usp=sharing",
       verified: true,
     },
     {
       title: "Cloud Computing",
-      topic: "Cloud Computing & Distributed Systems",
       issuer: "NPTEL (IIT, Kharagpur)",
       date: "May 2025",
+      year: "2025",
+      providerTag: "NPTEL",
+      image: "/cloud_computing.png",
+      skills: ["Cloud computing fundamentals", "Cloud services", "Resource and data management"],
       credentialId: "https://archive.nptel.ac.in/noc/Ecertificate/?q=NPTEL25CS11S104310253204257956",
+      verified: true,
+    },
+    {
+      title: "Android Development",
+      issuer: "Techvanto Academy, New Delhi",
+      date: "June 2025",
+      year: "2025",
+      providerTag: "TECHVANTO ACADEMY",
+      image: "/android_development.png",
+      skills: ["Android Development", "Java Programming", "Mobile App Development"],
+      credentialId: "https://drive.google.com/file/d/1wMPDzMPKVCFq7KKPfyH9FHtHB4A9SsCg/view?usp=sharing",
       verified: true,
     },
   ]
@@ -650,10 +670,12 @@ export default function Portfolio() {
                 <Button
                   size="lg"
                   onClick={() => scrollToSection("contact")}
-                  className="bg-primary hover:bg-primary/90 text-primary-foreground px-8 py-3 text-lg"
+                  className="group/btn bg-primary hover:bg-primary/90 text-primary-foreground px-8 py-3 text-lg transition-colors duration-300"
                 >
-                  Start a Conversation
-                  <MessageCircle className="ml-2 h-5 w-5" />
+                  <span className="transition-colors duration-300 group-hover/btn:text-white">
+                    Start a Conversation
+                  </span>
+                  <MessageCircle className="ml-2 h-5 w-5 transition-colors duration-300 group-hover/btn:text-white" />
                 </Button>
               </div>
             </CardContent>
@@ -1083,10 +1105,12 @@ export default function Portfolio() {
           <div className="text-center mt-12">
             <Button
               onClick={() => (window.location.href = "/projects")}
-              className="group bg-primary hover:bg-primary/90 text-primary-foreground px-8 py-3 text-lg font-semibold transition-all duration-300 hover:-translate-y-0.5 hover:shadow-lg"
+              className="group/btn bg-primary hover:bg-primary/90 text-primary-foreground px-8 py-3 text-lg font-semibold transition-all duration-300 hover:-translate-y-0.5 hover:shadow-lg"
             >
-              View All Projects
-              <ArrowRight className="ml-2 h-5 w-5 transition-transform duration-300 group-hover:translate-x-1" />
+              <span className="transition-colors duration-300 group-hover/btn:text-white">
+                View All Projects
+              </span>
+              <ArrowRight className="ml-2 h-5 w-5 transition-all duration-300 group-hover/btn:translate-x-1 group-hover/btn:text-white" />
             </Button>
           </div>
         </div>
@@ -1215,54 +1239,64 @@ export default function Portfolio() {
               <h3 className="text-2xl sm:text-3xl font-bold mb-3 bg-gradient-to-r from-foreground via-primary to-foreground bg-clip-text text-transparent">
                 Certifications
               </h3>
-
+              <p className="text-sm sm:text-base text-muted-foreground max-w-3xl mx-auto">
+                Structured like a modern credential gallery with preview images, skills gained, and quick verification links.
+              </p>
             </div>
 
-            <div className="grid md:grid-cols-3 gap-6">
+            <div className="grid md:grid-cols-2 xl:grid-cols-3 gap-6">
               {featuredCertifications.map((cert, index) => (
                 <Card
                   key={index}
-                  className="bg-background border-border hover:shadow-lg transition-all duration-300 group"
+                  className="group h-full overflow-hidden border border-border/60 bg-card transition-all duration-300 hover:-translate-y-1 hover:shadow-xl flex flex-col"
                 >
-                  <CardContent className="p-6">
-                    <div className="flex items-start justify-between mb-4">
-                      <div className="flex items-center">
-                        <div className="w-12 h-12 bg-gradient-to-br from-primary/20 to-accent/20 rounded-lg flex items-center justify-center mr-4">
-                          <BookOpen className="h-6 w-6 text-primary" />
-                        </div>
-                        <div className="flex-1">
-                          <h4 className="font-semibold text-foreground text-sm leading-tight group-hover:text-primary transition-colors">
-                            {cert.title}
-                          </h4>
-                          <p className="text-xs text-muted-foreground mt-1">{cert.issuer}</p>
-                        </div>
-                      </div>
+                  <div className="relative h-56 overflow-hidden border-b border-border/60">
+                    <Image
+                      src={cert.image}
+                      alt={`${cert.title} certificate`}
+                      fill
+                      className="object-cover transition-transform duration-500 group-hover:scale-105"
+                    />
+                    <span className="absolute left-4 bottom-3 inline-flex items-center rounded-full border border-primary/40 bg-background/80 px-3 py-1 text-[11px] font-semibold tracking-wide text-primary backdrop-blur-sm">
+                      {cert.providerTag}
+                    </span>
+                  </div>
+
+                  <CardContent className="p-5 bg-card flex flex-col flex-1">
+                    <div className="flex items-start justify-between gap-2 mb-3">
+                      <h4 className="text-lg font-bold text-card-foreground leading-snug break-words">
+                        {cert.title}
+                      </h4>
                       {cert.verified && (
-                        <div className="flex items-center">
-                          <CheckCircle className="h-4 w-4 text-green-500" />
-                        </div>
+                        <span className="inline-flex items-center gap-1 rounded-full bg-emerald-500/10 border border-emerald-500/25 px-2 py-1 text-[10px] font-semibold text-emerald-500 shrink-0">
+                          <CheckCircle className="h-3 w-3" />
+                          Verified
+                        </span>
                       )}
                     </div>
 
-                    <div className="space-y-3">
-                      <div className="bg-muted/50 p-3 rounded-lg">
-                        <p className="text-sm font-medium text-foreground">{cert.topic}</p>
-                      </div>
+                    <p className="text-[10px] font-semibold uppercase tracking-wide text-muted-foreground mb-3">Skills Gained</p>
+                    <div className="flex flex-wrap content-start gap-2 mb-6 min-h-[70px]">
+                      {cert.skills.map((skill, skillIndex) => (
+                        <span
+                          key={skillIndex}
+                          className="rounded-full border border-primary/30 bg-primary/10 px-2.5 py-0.5 text-xs font-medium text-primary"
+                        >
+                          {skill}
+                        </span>
+                      ))}
+                    </div>
 
-                      <div className="flex justify-between items-center text-xs">
-                        <span className="text-muted-foreground">Date: {cert.date}</span>
-                      </div>
-
+                    <div className="flex items-center justify-between border-t border-border/60 pt-3 mt-auto">
                       <Button
-                        variant="outline"
-                        size="sm"
-                        className="w-full text-xs bg-transparent"
+                        variant="link"
+                        className="h-auto p-0 text-sm font-semibold text-primary hover:text-white transition-colors duration-200"
                         onClick={() => window.open(cert.credentialId, "_blank")}
                         aria-label={`View ${cert.title} certificate`}
                       >
-                        <ExternalLink className="h-3 w-3 mr-1" aria-hidden="true" />
                         View Certificate
                       </Button>
+                      <span className="text-base font-bold text-primary">{cert.year}</span>
                     </div>
                   </CardContent>
                 </Card>
@@ -1272,10 +1306,12 @@ export default function Portfolio() {
             <div className="text-center mt-12">
               <Button
                 onClick={() => (window.location.href = "/certifications")}
-                className="group bg-primary hover:bg-primary/90 text-primary-foreground px-8 py-3 text-lg font-semibold transition-all duration-300 hover:-translate-y-0.5 hover:shadow-lg"
+                className="group/btn bg-primary hover:bg-primary/90 text-primary-foreground px-8 py-3 text-lg font-semibold transition-all duration-300 hover:-translate-y-0.5 hover:shadow-lg"
               >
-                View All Certifications
-                <ArrowRight className="ml-2 h-5 w-5 transition-transform duration-300 group-hover:translate-x-1" />
+                <span className="transition-colors duration-300 group-hover/btn:text-white">
+                  View All Certifications
+                </span>
+                <ArrowRight className="ml-2 h-5 w-5 transition-all duration-300 group-hover/btn:translate-x-1 group-hover/btn:text-white" />
               </Button>
             </div>
           </div>
@@ -1428,10 +1464,23 @@ export default function Portfolio() {
                       <Button
                         type="submit"
                         size="lg"
-                        className="w-full bg-primary hover:bg-primary/90 text-primary-foreground py-3 text-lg font-medium transition-all duration-200 hover:shadow-lg"
+                        disabled={isSending}
+                        className="group/btn w-full bg-primary hover:bg-primary/90 disabled:hover:bg-primary text-primary-foreground py-3 text-lg font-medium transition-all duration-200 hover:shadow-lg disabled:opacity-70 disabled:cursor-not-allowed"
                       >
-                        Send Message
-                        <ArrowRight className="ml-2 h-5 w-5" />
+                        {isSending ? (
+                          <span className="inline-flex items-center gap-2">
+                            <span className="h-4 w-4 rounded-full border-2 border-white/70 border-t-transparent animate-spin"></span>
+                            Sending...
+                          </span>
+                        ) : (
+                          <>
+                            <span className="relative inline-block transition-colors duration-300 group-hover/btn:text-white">
+                              Send Message
+                              <span className="absolute left-0 -bottom-1 h-0.5 w-0 bg-white transition-all duration-300 group-hover/btn:w-full"></span>
+                            </span>
+                            <ArrowRight className="ml-2 h-5 w-5 transition-transform duration-300 group-hover/btn:translate-x-1" />
+                          </>
+                        )}
                       </Button>
                     </form>
                   )}

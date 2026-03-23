@@ -4,12 +4,18 @@ import { useState } from "react"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
-import { Github, ExternalLink, ArrowLeft, Filter, Download } from "lucide-react"
+import { Github, ExternalLink, ArrowLeft, Filter, Download, ChevronRight } from "lucide-react"
 import Link from "next/link"
 
 export default function AllProjects() {
   const [selectedCategory, setSelectedCategory] = useState("all")
+  const [expandedProjectIds, setExpandedProjectIds] = useState<number[]>([])
 
+  const toggleProjectDescription = (projectId: number) => {
+    setExpandedProjectIds((prev) =>
+      prev.includes(projectId) ? prev.filter((id) => id !== projectId) : [...prev, projectId],
+    )
+  }
   const allProjects = [
     {
       id: 1,
@@ -205,19 +211,26 @@ export default function AllProjects() {
       <div className="bg-muted/30 py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center mb-8">
-            <Link href="/">
-              <Button variant="outline" size="sm" className="mr-4 bg-transparent">
-                <ArrowLeft className="h-4 w-4 mr-2" />
-                Back to Home
+            <Link href="/#projects">
+              <Button
+                variant="outline"
+                size="sm"
+                className="group/btn mr-4 bg-transparent text-primary hover:text-white transition-colors duration-200"
+              >
+                <ArrowLeft className="h-4 w-4 mr-2 transition-transform duration-300 group-hover/btn:-translate-x-0.5" />
+                <span className="relative inline-block">
+                  Back to Home
+                  <span className="absolute left-0 -bottom-0.5 h-0.5 w-0 bg-primary transition-all duration-300 group-hover/btn:w-full"></span>
+                </span>
               </Button>
             </Link>
           </div>
 
           <div className="text-center">
-            <h1 className="text-4xl sm:text-5xl font-bold text-foreground mb-4">All Projects</h1>
+            <p className="inline-block text-xs font-semibold tracking-[0.2em] uppercase text-primary/80 mb-3">Selected Work</p>
+            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-black text-foreground mb-4">All Projects</h1>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              Explore my complete portfolio of innovative solutions spanning AI/ML, web development, healthcare, and
-              more
+              Production-focused builds across AI/ML, healthcare, cybersecurity, and modern web engineering.
             </p>
           </div>
         </div>
@@ -244,56 +257,86 @@ export default function AllProjects() {
       </div>
 
       {/* Projects Grid */}
-      <div className="py-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="relative py-20 bg-background overflow-hidden">
+        <div className="pointer-events-none absolute -top-16 -right-10 h-72 w-72 rounded-full bg-primary/10 blur-3xl"></div>
+        <div className="pointer-events-none absolute -bottom-16 -left-10 h-80 w-80 rounded-full bg-accent/10 blur-3xl"></div>
+
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {filteredProjects.map((project) => (
               <Card
                 key={project.id}
-                className="group hover:shadow-xl transition-all duration-300 border-border bg-card flex flex-col"
+                className="group relative overflow-hidden border border-border/60 bg-card/85 backdrop-blur-xl shadow-[0_10px_30px_-15px_rgba(0,0,0,0.35)] transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_20px_45px_-18px_rgba(0,0,0,0.45)] flex flex-col"
               >
-                <div className="relative overflow-hidden rounded-t-lg">
+                <div className="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-primary via-accent to-secondary"></div>
+
+                <div className="relative overflow-hidden rounded-t-xl">
                   <img
                     src={project.image || "/placeholder.svg"}
                     alt={project.title}
-                    className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300"
+                    className="w-full h-52 object-cover transition-transform duration-500 group-hover:scale-105"
                   />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/35 via-black/0 to-transparent"></div>
                   <div className="absolute top-4 right-4">
-                    <Badge
-                      variant={
+                    <span
+                      className={`px-3 py-1 text-white text-xs font-semibold rounded-full border border-white/30 backdrop-blur-sm ${
                         project.status === "Live"
-                          ? "default"
+                          ? "bg-green-500/85"
                           : project.status === "Award Winner"
-                            ? "secondary"
-                            : "outline"
-                      }
+                            ? "bg-yellow-500/90"
+                            : "bg-blue-500/85"
+                      }`}
                     >
                       {project.status}
-                    </Badge>
+                    </span>
                   </div>
                 </div>
+
                 <CardContent className="p-6 flex flex-col flex-grow">
-                  <div className="flex items-center justify-between mb-3">
-                    <h3 className="text-xl font-bold text-card-foreground">{project.title}</h3>
-                    <Badge variant="outline" className="text-xs">
+                  <div className="flex items-start justify-between gap-3 mb-3">
+                    <h3 className="text-xl font-bold text-card-foreground leading-tight">{project.title}</h3>
+                    <span className="text-[11px] uppercase tracking-wide text-primary bg-primary/10 border border-primary/20 px-2.5 py-1 rounded-full shrink-0">
                       {project.category}
-                    </Badge>
+                    </span>
                   </div>
-                  <p className="text-muted-foreground text-sm mb-4 leading-relaxed">{project.description}</p>
-                  <div className="flex flex-wrap gap-2 mb-4">
+
+                  <p
+                    className={`text-muted-foreground text-sm leading-relaxed ${
+                      expandedProjectIds.includes(project.id) ? "mb-2" : "line-clamp-4 mb-2"
+                    }`}
+                  >
+                    {project.description}
+                  </p>
+                  <div className="mb-4 flex justify-end">
+                    <button
+                      type="button"
+                      onClick={() => toggleProjectDescription(project.id)}
+                      className="group/read inline-flex items-center gap-1 text-xs font-semibold text-primary transition-all duration-300 hover:text-primary/80 hover:translate-x-0.5"
+                    >
+                      <span className="relative">
+                        {expandedProjectIds.includes(project.id) ? "Read Less" : "Read More"}
+                        <span className="absolute left-0 -bottom-0.5 h-0.5 w-0 bg-primary transition-all duration-300 group-hover/read:w-full"></span>
+                      </span>
+                      <ChevronRight className="h-3.5 w-3.5 transition-transform duration-300 group-hover/read:translate-x-0.5" />
+                    </button>
+                  </div>
+
+                  <div className="flex flex-wrap gap-2 mb-5">
                     {project.technologies.map((tech, techIndex) => (
-                      <span key={techIndex} className="px-2 py-1 bg-primary/20 text-primary text-xs rounded">
+                      <span key={techIndex} className="px-2.5 py-1 bg-primary/10 border border-primary/20 text-primary text-xs rounded-full">
                         {tech}
                       </span>
                     ))}
                   </div>
-                  <div className="flex items-center justify-between mt-auto">
-                    <span className="text-xs text-muted-foreground">{project.year}</span>
-                    <div className="flex space-x-2">
+
+                  <div className="flex items-center justify-between mt-auto pt-2 border-t border-border/50">
+                    <span className="text-xs text-muted-foreground font-medium">{project.year}</span>
+
+                    <div className="flex flex-wrap gap-2 justify-end">
                       {project.apkUrl ? (
                         <a href={project.apkUrl} target="_blank" rel="noopener noreferrer">
-                          <Button size="sm" className="h-8 px-3">
-                            <Download className="h-3 w-3 mr-1" />
+                          <Button size="sm" className="group/btn h-8 px-3 text-xs font-semibold transition-all duration-300 hover:-translate-y-0.5 hover:shadow-md hover:bg-primary/90 hover:text-white">
+                            <Download className="h-3 w-3 mr-1 transition-transform duration-300 group-hover/btn:scale-110" />
                             Download APK
                           </Button>
                         </a>
@@ -301,16 +344,16 @@ export default function AllProjects() {
                         <>
                           {project.githubUrl !== "/" && (
                             <a href={project.githubUrl} target="_blank" rel="noopener noreferrer">
-                              <Button size="sm" variant="outline" className="h-8 px-3 bg-transparent">
-                                <Github className="h-3 w-3 mr-1" />
+                              <Button size="sm" variant="outline" className="group/btn h-8 px-3 bg-transparent text-xs transition-all duration-300 hover:-translate-y-0.5 hover:shadow-md hover:text-primary hover:border-primary">
+                                <Github className="h-3 w-3 mr-1 transition-transform duration-300 group-hover/btn:scale-110" />
                                 Code
                               </Button>
                             </a>
                           )}
                           {project.liveUrl !== "/" && (
                             <a href={project.liveUrl} target="_blank" rel="noopener noreferrer">
-                              <Button size="sm" className="h-8 px-3">
-                                <ExternalLink className="h-3 w-3 mr-1" />
+                              <Button size="sm" className="group/btn h-8 px-3 text-xs font-semibold transition-all duration-300 hover:-translate-y-0.5 hover:shadow-md hover:bg-primary/90 hover:text-white">
+                                <ExternalLink className="h-3 w-3 mr-1 transition-transform duration-300 group-hover/btn:translate-x-0.5" />
                                 Demo
                               </Button>
                             </a>
