@@ -720,42 +720,59 @@ export default function Portfolio() {
               <div className="relative flex items-center animate-slide-in-left">
                 <div className="absolute left-1/2 transform -translate-x-1/2 w-4 h-4 bg-primary rounded-full border-4 border-background z-10"></div>
 
-                <div className="w-1/2 pr-8 text-right">
+                <div className="w-1/2 pr-8">
                   <Card className="bg-card border-border shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2">
                     <CardContent className="p-4">
                       <div className="flex items-center justify-between mb-3">
-                        <div className="w-12 h-12 rounded-lg overflow-hidden flex items-center justify-center bg-gray-100 dark:bg-gray-800">
-                          <img
-                            src="/rallison-logo.png"
-                            alt="Rallison Paint Logo"
-                            className="w-full h-full object-contain"
-                          />
-                        </div>
                         <div className="flex items-center space-x-2">
+                          <Briefcase className="h-4 w-4 text-primary" />
                           <span className="px-2 py-1 bg-blue-100 dark:bg-blue-900/30 text-blue-800 dark:text-blue-200 text-xs rounded-full font-medium">
                             Completed
                           </span>
-                          <Briefcase className="h-4 w-4 text-primary" />
+                        </div>
+                        <div className="w-12 h-12 rounded-lg overflow-hidden flex items-center justify-center bg-gray-100 dark:bg-gray-800">
+                          <img
+                            src="/epilepto.png"
+                            alt="Epilepto Systems Logo"
+                            className="w-full h-full object-contain"
+                          />
                         </div>
                       </div>
-                      <h3 className="text-lg font-bold text-card-foreground mb-1">Full Stack Developer</h3>
-                      <h4 className="text-base font-semibold text-destructive mb-2">Rallison Paints Pvt. Ltd.</h4>
+                      <h3 className="text-lg font-bold text-card-foreground mb-1">Web Developer Intern</h3>
+                      <h4 className="text-base font-semibold text-destructive mb-2">Epilepto Systems</h4>
                       <p className="text-sm text-muted-foreground mb-3 line-clamp-3">
-                        As a Full Stack Developer at Rallison Paints Pvt. Ltd., designed, developed and maintained
-                        end-to-end web applications to support business operations.
+                        Developed 5+ responsive frontend modules and resolved 10+ UI issues, improving user experience and platform stability. Collaborated using Git workflows and ensured production-ready code quality.
                       </p>
-                      <div className="flex flex-wrap gap-1 justify-end">
+                      <div className="flex flex-wrap gap-1">
                         <span className="px-2 py-1 bg-blue-100 dark:bg-blue-900/30 text-blue-800 dark:text-blue-200 text-xs rounded">
                           Next.js
                         </span>
-                        <span className="px-2 py-1 bg-green-100 dark:bg-green-900/30 text-green-800 dark:text-green-200 text-xs rounded">
+                        <span className="px-2 py-1 bg-purple-100 dark:bg-purple-900/30 text-purple-800 dark:text-purple-200 text-xs rounded">
+                          React.js
+                        </span>
+                        <span className="px-2 py-1 bg-cyan-100 dark:bg-cyan-900/30 text-cyan-800 dark:text-cyan-200 text-xs rounded">
+                          Tailwind CSS
+                        </span>
+                        <span className="px-2 py-1 bg-orange-100 dark:bg-orange-900/30 text-orange-800 dark:text-orange-200 text-xs rounded">
                           Firebase
                         </span>
-                        <span className="px-2 py-1 bg-purple-100 dark:bg-purple-900/30 text-purple-800 dark:text-purple-200 text-xs rounded">
-                          Cloud Firestore
+                        <span className="px-2 py-1 bg-red-100 dark:bg-red-900/30 text-red-800 dark:text-red-200 text-xs rounded">
+                          Git
+                        </span>
+                        <span className="px-2 py-1 bg-yellow-100 dark:bg-yellow-900/30 text-yellow-800 dark:text-yellow-200 text-xs rounded">
+                          GitHub
                         </span>
                       </div>
-                      <div className="text-xs text-muted-foreground mt-2 text-right">Aug 2025 - Sep 2025</div>
+                      <div className="mt-3 flex items-center justify-between">
+                        <div className="text-xs text-muted-foreground">November 2025 - December 2025</div>
+                        <Button asChild size="sm" className="group h-8 px-3 text-xs">
+                          <a href="/Epilepto_Certificate.pdf" target="_blank" rel="noopener noreferrer">
+                            <span className="relative inline-block transition-colors duration-300 group-hover:text-yellow-100 after:content-[''] after:absolute after:left-0 after:-bottom-0.5 after:w-0 after:h-0.5 after:bg-white after:transition-all after:duration-300 group-hover:after:w-full">
+                              View Certificate
+                            </span>
+                          </a>
+                        </Button>
+                      </div>
                     </CardContent>
                   </Card>
                 </div>
@@ -780,33 +797,38 @@ export default function Portfolio() {
                         </div>
                         <div className="w-12 h-12 rounded-lg overflow-hidden flex items-center justify-center bg-gray-100 dark:bg-gray-800">
                           <img
-                            src="/bhatia-sales-logo.png"
-                            alt="BhatiaSales Logo"
+                            src="/rallison-logo.png"
+                            alt="Rallison Paint Logo"
                             className="w-full h-full object-contain"
                           />
                         </div>
                       </div>
-                      <h3 className="text-lg font-bold text-card-foreground mb-1">Full Stack Developer</h3>
-                      <h4 className="text-base font-semibold text-destructive mb-2">BhatiaSales</h4>
+                      <h3 className="text-lg font-bold text-card-foreground mb-1">Freelance Full Stack Developer</h3>
+                      <h4 className="text-base font-semibold text-destructive mb-2">Rallison Paints Pvt. Ltd.</h4>
                       <p className="text-sm text-muted-foreground mb-3 line-clamp-3">
-                        Developed a complete website for BhatiaSales, a motorcycle dealer featuring buy/sell
-                        functionality for second-hand vehicles, service booking, admin dashboard and more.
+                        Built and deployed a scalable business website showcasing 25+ products with secure authentication and real-time data handling, improving SEO by 25% and supporting real-time user interactions.
                       </p>
                       <div className="flex flex-wrap gap-1">
-                        <span className="px-2 py-1 bg-orange-100 dark:bg-orange-900/30 text-orange-800 dark:text-orange-200 text-xs rounded">
-                          HTML
-                        </span>
                         <span className="px-2 py-1 bg-blue-100 dark:bg-blue-900/30 text-blue-800 dark:text-blue-200 text-xs rounded">
-                          Tailwind CSS
+                          Next.js
                         </span>
-                        <span className="px-2 py-1 bg-yellow-100 dark:bg-yellow-900/30 text-yellow-800 dark:text-yellow-200 text-xs rounded">
-                          JavaScript
+                        <span className="px-2 py-1 bg-green-100 dark:bg-green-900/30 text-green-800 dark:text-green-200 text-xs rounded">
+                          Firebase
                         </span>
                         <span className="px-2 py-1 bg-purple-100 dark:bg-purple-900/30 text-purple-800 dark:text-purple-200 text-xs rounded">
-                          PHP
+                          Cloud Firestore
                         </span>
                       </div>
-                      <div className="text-xs text-muted-foreground mt-2">Feb 2025 - Apr 2025</div>
+                      <div className="mt-3 flex items-center justify-between">
+                        <div className="text-xs text-muted-foreground">August 2025 - October 2025</div>
+                        <Button asChild size="sm" className="group h-8 px-3 text-xs">
+                          <a href="/Rallison_Certificate.pdf" target="_blank" rel="noopener noreferrer">
+                            <span className="relative inline-block transition-colors duration-300 group-hover:text-yellow-100 after:content-[''] after:absolute after:left-0 after:-bottom-0.5 after:w-0 after:h-0.5 after:bg-white after:transition-all after:duration-300 group-hover:after:w-full">
+                              View Certificate
+                            </span>
+                          </a>
+                        </Button>
+                      </div>
                     </CardContent>
                   </Card>
                 </div>
@@ -814,15 +836,7 @@ export default function Portfolio() {
             </div>
           </div>
 
-          <div className="text-center mt-12">
-            <Button
-              onClick={() => (window.location.href = "/experience")}
-              className="bg-primary hover:bg-primary/90 text-primary-foreground px-8 py-3 text-lg font-semibold"
-            >
-              View All Experience
-              <ArrowRight className="ml-2 h-5 w-5" />
-            </Button>
-          </div>
+
         </div>
       </section>
 
@@ -931,15 +945,6 @@ export default function Portfolio() {
             ))}
           </div>
 
-          <div className="text-center mt-12">
-            <Button
-              onClick={() => (window.location.href = "/achievements")}
-              className="bg-primary hover:bg-primary/90 text-primary-foreground px-8 py-3 text-lg font-semibold"
-            >
-              View All Achievements
-              <ArrowRight className="ml-2 h-5 w-5" />
-            </Button>
-          </div>
         </div>
       </section>
 
