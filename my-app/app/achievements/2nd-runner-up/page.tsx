@@ -28,10 +28,17 @@ export default function HackIOTDetails() {
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_80%_70%,rgba(34,197,94,0.05),transparent_50%)]"></div>
 
         <div className="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
-          <Link href="/achievements">
-            <Button variant="ghost" size="sm" className="mb-8 hover:bg-primary/10 transition-colors">
-              <ArrowLeft className="h-4 w-4 mr-2" />
-              Back to Achievements
+          <Link href="/#achievements">
+            <Button
+              variant="outline"
+              size="sm"
+              className="group/btn mb-8 bg-transparent text-primary hover:text-white transition-colors duration-200"
+            >
+              <ArrowLeft className="h-4 w-4 mr-2 transition-transform duration-300 group-hover/btn:-translate-x-0.5" />
+              <span className="relative inline-block">
+                Back to Home
+                <span className="absolute left-0 -bottom-0.5 h-0.5 w-0 bg-primary transition-all duration-300 group-hover/btn:w-full"></span>
+              </span>
             </Button>
           </Link>
 

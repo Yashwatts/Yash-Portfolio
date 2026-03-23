@@ -871,7 +871,7 @@ export default function Portfolio() {
         </div>
       </section>
 
-      <section className="relative py-24 overflow-hidden bg-gradient-to-b from-muted/40 via-background to-muted/40 scroll-animate">
+      <section id="achievements" className="relative py-24 overflow-hidden bg-gradient-to-b from-muted/40 via-background to-muted/40 scroll-animate">
         <div className="pointer-events-none absolute -top-24 -left-24 h-72 w-72 rounded-full bg-primary/15 blur-3xl"></div>
         <div className="pointer-events-none absolute -bottom-28 -right-20 h-80 w-80 rounded-full bg-secondary/20 blur-3xl"></div>
 
@@ -1140,6 +1140,7 @@ export default function Portfolio() {
                     { name: "C++", level: 80, color: "bg-purple-500" },
                     { name: "JavaScript", level: 80, color: "bg-yellow-500" },
                     { name: "Java", level: 70, color: "bg-red-500" },
+                    { name: "PHP", level: 70, color: "bg-indigo-600" },
                     { name: "Python", level: 60, color: "bg-blue-500" },                    
                   ],
                 },

@@ -514,10 +514,16 @@ export default function AchievementBlog() {
       <div className="min-h-screen bg-background flex items-center justify-center">
         <div className="text-center">
           <h1 className="text-2xl font-bold text-foreground mb-4">Achievement Not Found</h1>
-          <Link href="/achievements">
-            <Button variant="outline">
-              <ArrowLeft className="h-4 w-4 mr-2" />
-              Back to Achievements
+          <Link href="/#achievements">
+            <Button
+              variant="outline"
+              className="group/btn bg-transparent text-primary hover:text-white transition-colors duration-200"
+            >
+              <ArrowLeft className="h-4 w-4 mr-2 transition-transform duration-300 group-hover/btn:-translate-x-0.5" />
+              <span className="relative inline-block">
+                Back to Home
+                <span className="absolute left-0 -bottom-0.5 h-0.5 w-0 bg-primary transition-all duration-300 group-hover/btn:w-full"></span>
+              </span>
             </Button>
           </Link>
         </div>
@@ -530,12 +536,18 @@ export default function AchievementBlog() {
       {/* Header */}
       <div className="bg-gradient-to-r from-primary/10 to-accent/10 py-12">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <Link
-            href="/achievements"
-            className="inline-flex items-center text-primary hover:text-accent mb-6 transition-colors"
-          >
-            <ArrowLeft className="h-4 w-4 mr-2" />
-            Back to Achievements
+          <Link href="/#achievements">
+            <Button
+              variant="outline"
+              size="sm"
+              className="group/btn mb-6 bg-transparent text-primary hover:text-white transition-colors duration-200"
+            >
+              <ArrowLeft className="h-4 w-4 mr-2 transition-transform duration-300 group-hover/btn:-translate-x-0.5" />
+              <span className="relative inline-block">
+                Back to Home
+                <span className="absolute left-0 -bottom-0.5 h-0.5 w-0 bg-primary transition-all duration-300 group-hover/btn:w-full"></span>
+              </span>
+            </Button>
           </Link>
 
           <div className="space-y-4">
