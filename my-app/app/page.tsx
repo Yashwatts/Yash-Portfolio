@@ -374,11 +374,13 @@ export default function Portfolio() {
                 <button
                   key={item.id}
                   onClick={() => scrollToSection(item.id)}
-                  className={`text-sm font-medium transition-colors hover:text-primary ${
+                  className={`group text-sm font-medium transition-colors ${
                     activeSection === item.id ? "text-primary" : "text-muted-foreground"
                   }`}
                 >
-                  {item.label}
+                  <span className="relative inline-block after:absolute after:left-0 after:-bottom-1 after:h-[2px] after:w-0 after:bg-white after:transition-all after:duration-300 group-hover:after:w-full">
+                    {item.label}
+                  </span>
                 </button>
               ))}
             </div>
@@ -531,8 +533,7 @@ export default function Portfolio() {
 </h1>
             <p className="text-xl sm:text-2xl text-muted-foreground mb-4 font-serif">B.Tech CSE Student</p>
             <p className="text-lg sm:text-xl text-muted-foreground mb-8 max-w-2xl mx-auto leading-relaxed">
-              Passionate software developer with expertise in AI/ML, Web Development, and innovative solutions. Patent
-              holder and hackathon winner creating impactful technology solutions.
+              Freelance Full Stack Developer | 4x Hackathon Winner | Built scalable systems & AI-powered apps solving real-world problems | Patent Filed
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-8">
@@ -549,9 +550,11 @@ export default function Portfolio() {
                 variant="outline"
                 size="lg"
                 onClick={() => window.open("/Yash Resume.pdf", "_blank")}
-                className="border-primary text-primary hover:bg-primary hover:text-primary-foreground px-8 py-3 text-lg bg-transparent"
+                className="group border-primary text-primary hover:bg-primary hover:text-white px-8 py-3 text-lg bg-transparent"
               >
-                View Resume
+                <span className="relative after:absolute after:left-0 after:-bottom-0.5 after:h-[2px] after:w-0 after:bg-primary after:transition-all after:duration-300 group-hover:after:w-full">
+                  View Resume
+                </span>
                 <FileText className="ml-2 h-5 w-5" />
               </Button>
 
@@ -575,6 +578,15 @@ export default function Portfolio() {
                 <Github className="h-6 w-6 text-muted-foreground group-hover:text-primary-foreground" />
               </a>
               <a
+                href="https://codolio.com/profile/yashwatts"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-12 h-12 bg-muted hover:bg-primary rounded-full flex items-center justify-center transition-colors duration-300 group"
+                aria-label="Codolio Profile"
+              >
+                <Code className="h-6 w-6 text-muted-foreground group-hover:text-primary-foreground" />
+              </a>
+              <a
                 href="https://www.linkedin.com/in/yashwatts"
                 target="_blank"
                 rel="noopener noreferrer"
@@ -595,8 +607,53 @@ export default function Portfolio() {
         </div>
       </section>
 
+      <section id="about" className="py-20 bg-background scroll-animate">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <Card className="bg-card border-border shadow-lg">
+            <CardContent className="p-8 sm:p-10">
+              <div className="text-center mb-8">
+                <h2 className="text-3xl sm:text-4xl font-bold text-foreground mb-3">What I Bring</h2>
+                <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+                  A practical blend of engineering depth, delivery speed, and real client-facing experience.
+                </p>
+              </div>
+
+              <div className="grid md:grid-cols-2 gap-4 mb-8">
+                {[
+                  "End-to-end product development (Frontend → Backend → Deployment)",
+                  "Strong problem-solving with DSA + real-world systems",
+                  "Fast execution & ability to learn new tech quickly",
+                  "Experience working on real client projects",
+                  "Focus on building scalable and impactful solutions",
+                  "Performance & Optimization Focus",
+                ].map((point, index) => (
+                  <div
+                    key={index}
+                    className="flex items-start gap-3 p-4 rounded-lg border border-border bg-muted/30"
+                  >
+                    <CheckCircle className="h-5 w-5 text-primary mt-0.5 shrink-0" />
+                    <p className="text-foreground leading-relaxed">{point}</p>
+                  </div>
+                ))}
+              </div>
+
+              <div className="text-center">
+                <Button
+                  size="lg"
+                  onClick={() => scrollToSection("contact")}
+                  className="bg-primary hover:bg-primary/90 text-primary-foreground px-8 py-3 text-lg"
+                >
+                  Start a Conversation
+                  <MessageCircle className="ml-2 h-5 w-5" />
+                </Button>
+              </div>
+            </CardContent>
+          </Card>
+        </div>
+      </section>
+
       {/* About Section */}
-      <section id="about" className="py-20 bg-muted/30 scroll-animate">
+      <section id="about-me" className="py-20 bg-muted/30 scroll-animate">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-3xl sm:text-4xl font-bold text-foreground mb-4">About Me</h2>
@@ -629,6 +686,7 @@ export default function Portfolio() {
                   <p className="text-muted-foreground">Computer Science Engineering</p>
                   <p className="text-sm text-muted-foreground">Lovely Professional University, Punjab</p>
                   <p className="text-sm text-primary font-medium">Expected Graduation: May 2027</p>
+                  <p className="text-sm text-primary font-medium">CGPA: 8.04/10</p>
                 </div>
               </div>
 
@@ -638,9 +696,7 @@ export default function Portfolio() {
                   <h3 className="text-xl font-semibold text-card-foreground">Professional Focus</h3>
                 </div>
                 <p className="text-muted-foreground leading-relaxed">
-                  Specializing in AI/ML applications and full-stack web development, while also learning Android
-                  Development. Passionate about creating innovative solutions that solve real-world problems and improve
-                  lives.
+                  Specializing in full-stack development and AI/ML-driven applications, with hands-on experience building scalable and real-world systems. Strong foundation in data structures and backend architecture, with a focus on developing impactful solutions that handle real-time interactions and intelligent automation.
                 </p>
               </div>
             </div>
