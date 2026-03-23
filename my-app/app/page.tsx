@@ -25,6 +25,8 @@ import {
   ExternalLink,
   Award,
   Brain,
+  Cloud,
+  Database,
   ArrowRight,
   CheckCircle,
   BookOpen,
@@ -50,6 +52,7 @@ export default function Portfolio() {
   const [submitted, setSubmitted] = useState(false)
   const [error, setError] = useState<string | null>(null)
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 })
+  const [expandedProjectIds, setExpandedProjectIds] = useState<number[]>([])
 
   useEffect(() => {
     const handleMouseMove = (e: MouseEvent) => {
@@ -166,6 +169,12 @@ export default function Portfolio() {
     setIsMenuOpen(false)
   }
 
+  const toggleProjectDescription = (projectId: number) => {
+    setExpandedProjectIds((prev) =>
+      prev.includes(projectId) ? prev.filter((id) => id !== projectId) : [...prev, projectId],
+    )
+  }
+
   const featuredProjects = [
     {
       id: 1,
@@ -277,13 +286,13 @@ export default function Portfolio() {
 
   const featuredAchievements = [
     {
-      title: "Patent Verified",
+      title: "Patent Filed",
       slug: "patent-filing-2025",
       subtitle: "Self-evolving AI System Utilizing Quantum Computing",
       date: "August 2025",
       location: "DRD (Department of Research and Development)",
       type: "patent",
-      status: "Verified - Publication Pending",
+      status: "Filed - Publication Pending",
       description:
         "Successfully filed and verified Intellectual Property Rights (IPR) with DRD for autonomous learning and adaptive decision-making system. Patent has been verified and is currently pending official publication.",
       image: null,
@@ -298,7 +307,7 @@ export default function Portfolio() {
       type: "hackathon",
       status: "Winner",
       description:
-        "Secured 1st position in healthcare track organized by IEEE, KIET Group of Institutions. Made healthcare web-application to bring together patient care, provider tools, and collaboration between hospitals into one user-friendly system.",
+        "Secured 1st position in healthcare track organized by IEEE, KIET Group of Institutions. Made healthcare web-application to bring together patient care, provider tools and collaboration between hospitals into user-friendly system.",
       image: "/ieee2024.jpg",
       technologies: ["HTML", "CSS", "JavaScript", "PHP", "MySQL"],
     },
@@ -309,7 +318,7 @@ export default function Portfolio() {
       date: "February 2024",
       location: "Lovely Professional University, Punjab",
       type: "hackathon",
-      status: "Runner-Up",
+      status: "2nd Runner-Up",
       description:
         "Secured 2nd Runner-Up position in hackathon organized by ECE School of LPU. It showcased web-application making and leadership skills. Made a gaming webapp WriteTheRights for kids to aware them about their rights.",
       image: "/hackiot.png",
@@ -322,9 +331,9 @@ export default function Portfolio() {
       date: "December 2023",
       location: "Lovely Professional University, Punjab",
       type: "hackathon",
-      status: "Runner-Up",
+      status: "1st Runner-Up",
       description:
-        "Secured 1st Runner-Up position in the competition which showcased Frontend skills and Presentation skills. Made an event management website in which users can able to book tickets of movies, concerts, standup shows, etc. in their respective locations and can also list their events in our website.",
+        "Secured 1st Runner-Up in a competition showcasing frontend and presentation skills. Built an event management platform enabling users to book tickets for movies, concerts, and shows, and list their own events by location.",
       image: "/frontend.png",
       technologies: ["HTML", "CSS", "JavaScript"],
     },
@@ -840,166 +849,207 @@ export default function Portfolio() {
         </div>
       </section>
 
-      <section className="py-20 bg-muted/30 scroll-animate">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl sm:text-4xl font-bold text-foreground mb-4">Achievements & Recognition</h2>
-            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              Awards, competitions, and milestones that define my journey
+      <section className="relative py-24 overflow-hidden bg-gradient-to-b from-muted/40 via-background to-muted/40 scroll-animate">
+        <div className="pointer-events-none absolute -top-24 -left-24 h-72 w-72 rounded-full bg-primary/15 blur-3xl"></div>
+        <div className="pointer-events-none absolute -bottom-28 -right-20 h-80 w-80 rounded-full bg-secondary/20 blur-3xl"></div>
+
+        <div className="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-14">
+            <p className="inline-block text-xs font-semibold tracking-[0.2em] uppercase text-primary/80 mb-3">Milestones</p>
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black leading-tight mb-4 bg-gradient-to-r from-primary via-accent to-secondary bg-clip-text text-transparent">
+              Achievements & Recognition
+            </h2>
+            <p className="text-base sm:text-lg text-muted-foreground max-w-2xl mx-auto">
+              Selected wins, innovation highlights, and recognition that shaped my growth.
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 gap-8">
+          <div className="mb-10 flex flex-wrap items-center justify-center gap-3">
+            <span className="px-4 py-1.5 rounded-full text-xs font-semibold bg-primary/15 text-primary border border-primary/30">
+              4 Featured Milestones
+            </span>
+            <span className="px-4 py-1.5 rounded-full text-xs font-semibold bg-secondary/15 text-secondary border border-secondary/30">
+              Patent + Hackathons
+            </span>
+          </div>
+
+          <div className="grid md:grid-cols-2 gap-7">
             {featuredAchievements.map((achievement, index) => (
               <Card
                 key={index}
-                className={`${
-                  achievement.type === "patent"
-                    ? "bg-gradient-to-br from-primary/10 to-secondary/10 border-primary/30"
-                    : "bg-gradient-to-br from-accent/10 to-primary/10 border-accent/30"
-                } shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2`}
+                className="group relative overflow-hidden border border-border/60 bg-card/80 backdrop-blur-xl shadow-[0_10px_30px_-15px_rgba(0,0,0,0.35)] transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_18px_40px_-15px_rgba(0,0,0,0.45)]"
               >
-                <CardContent className="p-8">
-                  {/* Achievement Image */}
+                <div className="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-primary via-accent to-secondary"></div>
+
+                <CardContent className="p-6 sm:p-7">
+                  <div className="flex items-start justify-between gap-3 mb-4">
+                    <div className="flex items-start gap-3 min-w-0">
+                      <div className="h-11 w-11 rounded-2xl bg-gradient-to-br from-primary/20 to-secondary/20 text-primary flex items-center justify-center border border-primary/20 shrink-0">
+                        {achievement.type === "patent" ? <Award className="h-5 w-5" /> : <Trophy className="h-5 w-5" />}
+                      </div>
+                      <div className="min-w-0">
+                        <h3 className="text-lg font-bold text-foreground leading-tight break-words">{achievement.title}</h3>
+                        <p className="mt-1 text-sm text-muted-foreground leading-snug break-words">{achievement.subtitle}</p>
+                      </div>
+                    </div>
+
+                    <Badge
+                      variant={
+                        achievement.status === "Winner"
+                          ? "default"
+                          : achievement.status.includes("Runner-Up")
+                            ? "secondary"
+                            : "outline"
+                      }
+                      className="shrink-0"
+                    >
+                      {achievement.status}
+                    </Badge>
+                  </div>
+
+                  <div className="mb-4 flex flex-wrap gap-2">
+                    <span className="inline-flex items-center gap-1.5 text-xs text-muted-foreground bg-muted/70 border border-border/60 rounded-full px-2.5 py-1">
+                      <Calendar className="h-3.5 w-3.5" />
+                      {achievement.date}
+                    </span>
+                    <span className="inline-flex items-center gap-1.5 text-xs text-muted-foreground bg-muted/70 border border-border/60 rounded-full px-2.5 py-1 max-w-full">
+                      <MapPin className="h-3.5 w-3.5 shrink-0" />
+                      <span className="truncate">{achievement.location}</span>
+                    </span>
+                  </div>
+
                   {achievement.image && (
-                    <div className="mb-6 rounded-lg overflow-hidden">
+                    <div className="mb-4 rounded-2xl overflow-hidden border border-border/60">
                       <img
                         src={achievement.image || "/placeholder.svg"}
                         alt={achievement.subtitle}
-                        className="w-full h-48 object-cover"
+                        className="w-full h-40 object-cover transition-transform duration-500 group-hover:scale-105"
                       />
                     </div>
                   )}
 
-                  <div className="flex items-center space-x-4 mb-6">
-                    <div className="w-12 h-12 bg-gradient-to-r from-primary to-accent rounded-full flex items-center justify-center">
-                      {achievement.type === "patent" ? (
-                        <Award className="h-6 w-6 text-white" />
-                      ) : (
-                        <Trophy className="h-6 w-6 text-white" />
-                      )}
-                    </div>
-                    <div className="flex-1">
-                      <div className="flex items-center space-x-2 mb-1">
-                        <h3 className="text-xl font-bold text-foreground">{achievement.title}</h3>
-                        <Badge
-                          variant={
-                            achievement.status === "Winner"
-                              ? "default"
-                              : achievement.status === "Runner-Up"
-                                ? "secondary"
-                                : "outline"
-                          }
-                        >
-                          {achievement.status}
-                        </Badge>
-                      </div>
-                      <div className="flex items-center space-x-4 text-sm text-muted-foreground">
-                        <div className="flex items-center space-x-1">
-                          <Calendar className="h-3 w-3" />
-                          <span>{achievement.date}</span>
-                        </div>
-                        <div className="flex items-center space-x-1">
-                          <MapPin className="h-3 w-3" />
-                          <span>{achievement.location}</span>
-                        </div>
-                      </div>
-                    </div>
+                  <p className="text-sm text-muted-foreground leading-relaxed line-clamp-3 mb-5">{achievement.description}</p>
+
+                  <div className="flex flex-wrap gap-2 mb-5">
+                    {achievement.technologies.map((tech, techIndex) => (
+                      <Badge key={techIndex} variant="outline" className="text-[11px] px-2.5 py-0.5 bg-background/70">
+                        {tech}
+                      </Badge>
+                    ))}
                   </div>
 
-                  <h4 className="font-semibold text-foreground mb-3 text-lg">{achievement.subtitle}</h4>
-
-                  <p className="text-muted-foreground mb-4 leading-relaxed">{achievement.description}</p>
-
-                  {achievement.technologies.length > 0 && (
-                    <div className="flex flex-wrap gap-2 mb-4">
-                      {achievement.technologies.map((tech, techIndex) => (
-                        <Badge key={techIndex} variant="outline" className="text-xs">
-                          {tech}
-                        </Badge>
-                      ))}
-                    </div>
-                  )}
-
-                  {achievement.type === "hackathon" && (
-                    <div className="mt-6">
-                      <Link href={`/achievements/${achievement.slug}`}>
-                        <Button className="w-full bg-primary hover:bg-primary/90 text-primary-foreground">
-                          View Details
-                          <ChevronRight className="ml-2 h-4 w-4" />
-                        </Button>
-                      </Link>
-                    </div>
-                  )}
-
-                  {achievement.type === "patent" && (
-                    <div className="flex items-center space-x-2 mt-4 p-3 bg-yellow-50 dark:bg-yellow-900/20 rounded-lg">
-                      <div className="w-3 h-3 bg-yellow-500 rounded-full animate-pulse"></div>
-                      <span className="text-sm text-yellow-700 dark:text-yellow-300 font-medium">
-                        {achievement.status}
+                  <div className="flex items-center justify-end">
+                    {achievement.type === "hackathon" ? (
+                      <Button asChild size="sm" className="group/link h-9 rounded-full px-4 text-xs font-semibold shadow-sm hover:shadow-md">
+                        <Link href={`/achievements/${achievement.slug}`}>
+                          <span className="relative inline-block transition-colors duration-300 group-hover/link:text-white">
+                            View Details
+                            <span className="absolute left-0 -bottom-0.5 h-0.5 w-0 bg-white transition-all duration-300 group-hover/link:w-full"></span>
+                          </span>
+                          <ChevronRight className="ml-1 h-4 w-4 transition-transform duration-300 group-hover/link:translate-x-0.5" />
+                        </Link>
+                      </Button>
+                    ) : (
+                      <span className="text-xs font-medium text-yellow-700 dark:text-yellow-300 bg-yellow-50 dark:bg-yellow-900/20 border border-yellow-300/40 dark:border-yellow-700/40 px-3 py-1.5 rounded-full">
+                        Publication Pending
                       </span>
-                    </div>
-                  )}
+                    )}
+                  </div>
                 </CardContent>
               </Card>
             ))}
           </div>
-
         </div>
       </section>
 
-      <section id="projects" className="py-20 bg-background scroll-animate">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl sm:text-4xl font-bold text-foreground mb-4">Featured Projects</h2>
+      <section id="projects" className="relative py-24 bg-background overflow-hidden scroll-animate">
+        <div className="pointer-events-none absolute -top-16 -right-10 h-72 w-72 rounded-full bg-primary/10 blur-3xl"></div>
+        <div className="pointer-events-none absolute -bottom-16 -left-10 h-80 w-80 rounded-full bg-accent/10 blur-3xl"></div>
+
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-14">
+            <p className="inline-block text-xs font-semibold tracking-[0.2em] uppercase text-primary/80 mb-3">Selected Work</p>
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-foreground mb-4">Featured Projects</h2>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              Innovative solutions spanning AI/ML, healthcare, cybersecurity, and web development
+              Production-focused builds across AI/ML, healthcare, cybersecurity, and modern web engineering.
             </p>
           </div>
 
           <div className="grid lg:grid-cols-2 gap-8">
             {featuredProjects.map((project, index) => (
-              <Card key={index} className="group hover:shadow-xl transition-all duration-300 border-border bg-card flex flex-col">
-                <div className="relative overflow-hidden rounded-t-lg">
+              <Card
+                key={index}
+                className="group relative overflow-hidden border border-border/60 bg-card/85 backdrop-blur-xl shadow-[0_10px_30px_-15px_rgba(0,0,0,0.35)] transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_20px_45px_-18px_rgba(0,0,0,0.45)] flex flex-col"
+              >
+                <div className="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-primary via-accent to-secondary"></div>
+
+                <div className="relative overflow-hidden rounded-t-xl">
                   <img
                     src={project.image || "/placeholder.svg"}
                     alt={project.title}
-                    className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300"
+                    className="w-full h-52 object-cover transition-transform duration-500 group-hover:scale-105"
                   />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/35 via-black/0 to-transparent"></div>
                   <div className="absolute top-4 right-4">
                     <span
-                      className={`px-3 py-1 text-white text-xs font-medium rounded-full ${
+                      className={`px-3 py-1 text-white text-xs font-semibold rounded-full border border-white/30 backdrop-blur-sm ${
                         project.status === "Live"
-                          ? "bg-green-500"
+                          ? "bg-green-500/85"
                           : project.status === "Award Winner"
-                            ? "bg-yellow-500"
-                            : "bg-blue-500"
+                            ? "bg-yellow-500/90"
+                            : "bg-blue-500/85"
                       }`}
                     >
                       {project.status}
                     </span>
                   </div>
                 </div>
+
                 <CardContent className="p-6 flex flex-col flex-grow">
-                  <div className="flex items-center justify-between mb-3">
-                    <h3 className="text-xl font-bold text-card-foreground">{project.title}</h3>
-                    <span className="text-xs text-muted-foreground bg-muted px-2 py-1 rounded">{project.category}</span>
+                  <div className="flex items-start justify-between gap-3 mb-3">
+                    <h3 className="text-xl font-bold text-card-foreground leading-tight">{project.title}</h3>
+                    <span className="text-[11px] uppercase tracking-wide text-primary bg-primary/10 border border-primary/20 px-2.5 py-1 rounded-full shrink-0">
+                      {project.category}
+                    </span>
                   </div>
-                  <p className="text-muted-foreground text-sm mb-4 leading-relaxed">{project.description}</p>
-                  <div className="flex flex-wrap gap-2 mb-4">
+
+                  <p
+                    className={`text-muted-foreground text-sm leading-relaxed ${
+                      expandedProjectIds.includes(project.id) ? "mb-2" : "line-clamp-4 mb-2"
+                    }`}
+                  >
+                    {project.description}
+                  </p>
+                  <div className="mb-4 flex justify-end">
+                    <button
+                      type="button"
+                      onClick={() => toggleProjectDescription(project.id)}
+                      className="group/read inline-flex items-center gap-1 text-xs font-semibold text-primary transition-all duration-300 hover:text-primary/80 hover:translate-x-0.5"
+                    >
+                      <span className="relative">
+                        {expandedProjectIds.includes(project.id) ? "Read Less" : "Read More"}
+                        <span className="absolute left-0 -bottom-0.5 h-0.5 w-0 bg-primary transition-all duration-300 group-hover/read:w-full"></span>
+                      </span>
+                      <ChevronRight className="h-3.5 w-3.5 transition-transform duration-300 group-hover/read:translate-x-0.5" />
+                    </button>
+                  </div>
+
+                  <div className="flex flex-wrap gap-2 mb-5">
                     {project.technologies.map((tech, techIndex) => (
-                      <span key={techIndex} className="px-2 py-1 bg-primary/20 text-primary text-xs rounded">
+                      <span key={techIndex} className="px-2.5 py-1 bg-primary/10 border border-primary/20 text-primary text-xs rounded-full">
                         {tech}
                       </span>
                     ))}
                   </div>
-                  <div className="flex items-center justify-between mt-auto">
-                    <span className="text-xs text-muted-foreground">{project.year}</span>
-                    <div className="flex space-x-2">
+
+                  <div className="flex items-center justify-between mt-auto pt-2 border-t border-border/50">
+                    <span className="text-xs text-muted-foreground font-medium">{project.year}</span>
+
+                    <div className="flex flex-wrap gap-2 justify-end">
                       {project.apkUrl ? (
                         <a href={project.apkUrl} target="_blank" rel="noopener noreferrer">
-                          <Button size="sm" className="h-8 px-3">
-                            <Download className="h-3 w-3 mr-1" />
+                          <Button size="sm" className="group/btn h-8 px-3 text-xs font-semibold transition-all duration-300 hover:-translate-y-0.5 hover:shadow-md hover:bg-primary/90 hover:text-white">
+                            <Download className="h-3 w-3 mr-1 transition-transform duration-300 group-hover/btn:scale-110" />
                             Download APK
                           </Button>
                         </a>
@@ -1007,16 +1057,16 @@ export default function Portfolio() {
                         <>
                           {project.githubUrl !== "/" && (
                             <a href={project.githubUrl} target="_blank" rel="noopener noreferrer">
-                              <Button size="sm" variant="outline" className="h-8 px-3 bg-transparent">
-                                <Github className="h-3 w-3 mr-1" />
+                              <Button size="sm" variant="outline" className="group/btn h-8 px-3 bg-transparent text-xs transition-all duration-300 hover:-translate-y-0.5 hover:shadow-md hover:text-primary hover:border-primary">
+                                <Github className="h-3 w-3 mr-1 transition-transform duration-300 group-hover/btn:scale-110" />
                                 Code
                               </Button>
                             </a>
                           )}
                           {project.liveUrl !== "/" && (
                             <a href={project.liveUrl} target="_blank" rel="noopener noreferrer">
-                              <Button size="sm" className="h-8 px-3">
-                                <ExternalLink className="h-3 w-3 mr-1" />
+                              <Button size="sm" className="group/btn h-8 px-3 text-xs font-semibold transition-all duration-300 hover:-translate-y-0.5 hover:shadow-md hover:bg-primary/90 hover:text-white">
+                                <ExternalLink className="h-3 w-3 mr-1 transition-transform duration-300 group-hover/btn:translate-x-0.5" />
                                 Demo
                               </Button>
                             </a>
@@ -1033,10 +1083,10 @@ export default function Portfolio() {
           <div className="text-center mt-12">
             <Button
               onClick={() => (window.location.href = "/projects")}
-              className="bg-primary hover:bg-primary/90 text-primary-foreground px-8 py-3 text-lg font-semibold"
+              className="group bg-primary hover:bg-primary/90 text-primary-foreground px-8 py-3 text-lg font-semibold transition-all duration-300 hover:-translate-y-0.5 hover:shadow-lg"
             >
               View All Projects
-              <ArrowRight className="ml-2 h-5 w-5" />
+              <ArrowRight className="ml-2 h-5 w-5 transition-transform duration-300 group-hover:translate-x-1" />
             </Button>
           </div>
         </div>
@@ -1045,14 +1095,17 @@ export default function Portfolio() {
       <section id="skills" className="py-20 bg-muted/30 scroll-animate">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-3xl sm:text-4xl font-bold text-foreground mb-4">Skills & Certifications</h2>
-            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              A comprehensive overview of my technical expertise and professional certifications
+            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-primary/80 mb-3">Capabilities</p>
+            <h2 className="text-3xl sm:text-4xl font-bold mb-4 bg-gradient-to-r from-foreground via-primary to-foreground bg-clip-text text-transparent">
+              Skills, Tools & Certifications
+            </h2>
+            <p className="text-lg text-muted-foreground max-w-3xl mx-auto leading-relaxed">
+              A focused snapshot of my development strengths across engineering, cloud workflows, and industry-recognized certifications.
             </p>
           </div>
 
           <div className="mb-20">
-            <h3 className="text-2xl font-bold text-foreground mb-8 text-center">Technical Skills</h3>
+            <h3 className="text-2xl font-bold text-foreground mb-8 text-center">Technical Skills & Tools</h3>
 
             <div className="grid lg:grid-cols-2 xl:grid-cols-3 gap-8">
               {[
@@ -1060,57 +1113,55 @@ export default function Portfolio() {
                   title: "Programming Languages",
                   icon: Code,
                   skills: [
-                    { name: "Python", level: 60, color: "bg-blue-500" },
                     { name: "C++", level: 80, color: "bg-purple-500" },
-                    { name: "Java", level: 70, color: "bg-red-500" },
                     { name: "JavaScript", level: 80, color: "bg-yellow-500" },
-                    { name: "PHP", level: 50, color: "bg-indigo-500" },
+                    { name: "Java", level: 70, color: "bg-red-500" },
+                    { name: "Python", level: 60, color: "bg-blue-500" },                    
                   ],
                 },
                 {
                   title: "Frontend Technologies",
                   icon: Palette,
                   skills: [
-                    { name: "HTML/CSS", level: 95, color: "bg-orange-500" },
-                    { name: "TailwindCSS", level: 90, color: "bg-teal-500" },
-                    { name: "React.js", level: 75, color: "bg-cyan-500" },
-                    { name: "Next.js", level: 60, color: "bg-indigo-500" },
-                    { name: "JavaScript", level: 80, color: "bg-yellow-500" },
+                    { name: "Next.js", level: 80, color: "bg-orange-500" },
+                    { name: "React.js", level: 85, color: "bg-teal-500" },
+                    { name: "HTML/CSS", level: 90, color: "bg-indigo-500" },
+                    { name: "TailwindCSS", level: 80, color: "bg-yellow-500" },
                   ],
                 },
                 {
-                  title: "Backend & Databases",
+                  title: "Backend Development",
                   icon: Server,
                   skills: [
-                    { name: "Node.js", level: 75, color: "bg-green-600" },
-                    { name: "PHP", level: 50, color: "bg-green-700" },
-                    { name: "MySQL", level: 75, color: "bg-orange-600" },
-                    { name: "MongoDB", level: 75, color: "bg-red-500" },
+                    { name: "Node.js", level: 85, color: "bg-green-600" },
+                    { name: "Express.js", level: 80, color: "bg-green-700" },
+                    { name: "RESTful APIs", level: 75, color: "bg-orange-600" },
+                    { name: "API Integration", level: 80, color: "bg-emerald-600" },
+                    { name: "JWT Authentication", level: 75, color: "bg-red-500" },
                   ],
                 },
                 {
-                  title: "AI/ML & Data Science",
-                  icon: Brain,
+                  title: "Database Technologies",
+                  icon: Database,
                   skills: [
-                    { name: "TensorFlow", level: 75, color: "bg-orange-500" },
-                    { name: "OpenCV", level: 70, color: "bg-blue-800" },
-                    { name: "Machine Learning", level: 75, color: "bg-purple-600" },
-                    { name: "Deep Learning", level: 70, color: "bg-indigo-600" },
-                    { name: "Google Colab", level: 80, color: "bg-yellow-600" },
-                    { name: "Flask", level: 75, color: "bg-green-500" },
+                    { name: "MongoDB", level: 85, color: "bg-orange-500" },
+                    { name: "MySQL", level: 85, color: "bg-blue-800" },
+                    { name: "Firebase", level: 80, color: "bg-purple-600" },
                   ],
                 },
                 {
-                  title: "AI Tools & Platforms",
-                  icon: Wrench,
+                  title: "Cloud & DevOps",
+                  icon: Cloud,
                   skills: [
-                    { name: "Google Colab", level: 80, color: "bg-yellow-600" },
-                    { name: "ChatGPT", level: 95, color: "bg-green-500" },
-                    { name: "GitHub Copilot", level: 80, color: "bg-orange-500" },
-                    { name: "Gemini", level: 90, color: "bg-purple-500" },
-                    { name: "V0 by Vercel", level: 90, color: "bg-blue-600" },
-                    { name: "Grok", level: 95, color: "bg-red-600" },
-                    { name: "Cursor", level: 85, color: "bg-indigo-600" },
+                    { name: "AWS (Amazon Web Services)", level: 65, color: "bg-yellow-600" },
+                    { name: "GCP (Google Cloud Platform)", level: 75, color: "bg-green-500" },
+                    { name: "Vercel", level: 90, color: "bg-emerald-500" },
+                    { name: "Render", level: 90, color: "bg-teal-600" },
+                    { name: "Docker", level: 65, color: "bg-orange-500" },
+                    { name: "Git", level: 80, color: "bg-purple-500" },
+                    { name: "GitHub", level: 85, color: "bg-blue-600" },
+                    { name: "CI/CD Pipelines", level: 60, color: "bg-red-600" },
+                    { name: "Postman", level: 70, color: "bg-indigo-600" },
                   ],
                 },
                 {
@@ -1159,7 +1210,13 @@ export default function Portfolio() {
           </div>
 
           <div>
-            <h3 className="text-2xl font-bold text-foreground mb-8 text-center">Certifications</h3>
+            <div className="text-center mb-10">
+              <p className="text-xs font-semibold uppercase tracking-[0.2em] text-primary/80 mb-3">Credentials</p>
+              <h3 className="text-2xl sm:text-3xl font-bold mb-3 bg-gradient-to-r from-foreground via-primary to-foreground bg-clip-text text-transparent">
+                Certifications
+              </h3>
+
+            </div>
 
             <div className="grid md:grid-cols-3 gap-6">
               {featuredCertifications.map((cert, index) => (
@@ -1215,10 +1272,10 @@ export default function Portfolio() {
             <div className="text-center mt-12">
               <Button
                 onClick={() => (window.location.href = "/certifications")}
-                className="bg-primary hover:bg-primary/90 text-primary-foreground px-8 py-3 text-lg font-semibold"
+                className="group bg-primary hover:bg-primary/90 text-primary-foreground px-8 py-3 text-lg font-semibold transition-all duration-300 hover:-translate-y-0.5 hover:shadow-lg"
               >
                 View All Certifications
-                <ArrowRight className="ml-2 h-5 w-5" />
+                <ArrowRight className="ml-2 h-5 w-5 transition-transform duration-300 group-hover:translate-x-1" />
               </Button>
             </div>
           </div>
