@@ -45,6 +45,8 @@ import { loadSlim } from "tsparticles-slim"
 import type { Container, Engine } from "tsparticles-engine"
 
 export default function Portfolio() {
+  const resumeUrl = "/Yash%20Resume.pdf"
+
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const [activeSection, setActiveSection] = useState("home")
   const [selectedCategory, setSelectedCategory] = useState("all")
@@ -361,7 +363,7 @@ export default function Portfolio() {
 
   const downloadResume = () => {
     const link = document.createElement("a")
-    link.href = "/Yash Resume.pdf"
+    link.href = resumeUrl
     link.download = "Yash_Watts_Resume.pdf"
     document.body.appendChild(link)
     link.click()
@@ -578,7 +580,7 @@ export default function Portfolio() {
               <Button
                 variant="outline"
                 size="lg"
-                onClick={() => window.open("/Yash Resume.pdf", "_blank")}
+                onClick={() => window.open(resumeUrl, "_blank")}
                 className="group border-primary text-primary hover:bg-primary hover:text-white px-8 py-3 text-lg bg-transparent"
               >
                 <span className="relative after:absolute after:left-0 after:-bottom-0.5 after:h-[2px] after:w-0 after:bg-primary after:transition-all after:duration-300 group-hover:after:w-full">
